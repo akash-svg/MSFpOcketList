@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MSFPocketList">
         <activity
+            android:name=".ForgotPassword"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
