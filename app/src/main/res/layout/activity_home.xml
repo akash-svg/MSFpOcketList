@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    tools:context=".HomeActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/custom_toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textview_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="center"
+        android:text="Select Any one,
+to display the contact list"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_one"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="10dp"
+        app:cardCornerRadius="6dp"
+
+        app:cardElevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_home">
+
+        <LinearLayout
+            android:id="@+id/mainLay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+
+                android:gravity="center"
+                android:text="MSF_HQ"
+                android:textColor="@color/black"
+                android:textSize="27sp" />
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_two"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_one">
+
+        <LinearLayout
+            android:id="@+id/linear_two"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:gravity="center"
+                android:text="Mission"
+                android:textColor="@color/black"
+                android:textSize="27sp" />
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_three"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_two">
+
+        <LinearLayout
+            android:id="@+id/linear_three"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:gravity="center"
+                android:text="Emergency"
+                android:textColor="@color/black"
+                android:textSize="27sp" />
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
