@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MISSION"
+    android:background="@color/gray">
+
+
+
+
+        <include
+            android:id="@+id/include"
+            layout="@layout/custom_toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        tools:listitem="@layout/cardview_mission"
+        android:layout_below="@id/include"/>
+
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        app:fabCradleMargin="10dp"
+        app:fabCradleRoundedCornerRadius="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_menu"
+        app:navigationIcon="@drawable/ic_home"
+        tools:ignore="BottomAppBar,MissingConstraints">
+
+
+        <!--            <com.google.android.material.bottomnavigation.BottomNavigationView-->
+        <!--                android:id="@+id/bottom_View"-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_marginRight="20dp"-->
+        <!--                android:background="@android:color/transparent"-->
+        <!--                app:labelVisibilityMode="labeled"-->
+        <!--                app:menu="@menu/bottom_menu" />-->
+
+    </com.google.android.material.bottomappbar.BottomAppBar>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floting_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_add"
+            app:backgroundTint="@color/white"
+            app:layout_anchor="@id/bottomAppbar"
+            app:layout_constraintBottom_toTopOf="@+id/bottomAppbar"
+            app:maxImageSize="50dp"
+            tools:ignore="ContentDescription,MissingConstraints"
+            tools:layout_editor_absoluteX="177dp" />
+
+
+
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

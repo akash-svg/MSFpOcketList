@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MSFPocketList">
         <activity
+            android:name=".MISSION"
+            android:exported="false" />
+        <activity
+            android:name=".MSF_HQ"
+            android:exported="false" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="true" />
+        <activity
             android:name=".ForgotPassword"
             android:exported="true" />
         <activity

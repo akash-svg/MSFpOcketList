@@ -42,7 +42,6 @@ to display the contact list"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="10dp"
         app:cardCornerRadius="6dp"
-
         app:cardElevation="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
