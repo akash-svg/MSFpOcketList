@@ -4,6 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/gray"
     tools:context=".MSF_HQ">
+
+    <include
+        android:id="@+id/include_msf"
+        layout="@layout/custom_toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/searbar_msf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:hint="search"
+        android:textSize="18sp"
+        android:minHeight="48dp"
+        android:background="@drawable/edite_boder"
+        android:backgroundTint="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/recy_view_msf"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include_msf"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recy_view_msf"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:listitem="@layout/cardview_msf_hq"
+        app:layout_constraintTop_toBottomOf="@+id/searbar_msf"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
