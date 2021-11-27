@@ -1,4 +1,4 @@
-package com.example.msfpocketlist;
+package com.example.msfpocketlist.ui.auth.recover;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.msfpocketlist.ui.hq.HomeActivity;
+import com.example.msfpocketlist.R;
 
 public class ForgotPassword extends AppCompatActivity {
     Button nexe2;
@@ -20,7 +23,7 @@ public class ForgotPassword extends AppCompatActivity {
         nexe2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ForgotPassword.this,HomeActivity.class);
+                Intent intent = new Intent(ForgotPassword.this, HomeActivity.class);
                 startActivity(intent);
             }
         });

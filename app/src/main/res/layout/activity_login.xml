@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray"
-    tools:context=".MainActivity">
+    tools:context=".ui.auth.login.LoginActivity">
 
     <View
         android:id="@+id/rectangle_3"
@@ -76,25 +76,28 @@
                 tools:ignore="Autofill"/>
 
 
-        <Button
+        <TextView
             android:id="@+id/btn_forget"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:layout_margin="5dp"
-            android:layout_marginTop="10dp"
             android:backgroundTint="@color/gray"
             android:elevation="0dp"
             android:fontFamily="@font/noto_sans"
-            android:text="FFORGET PASSWORD?"
-            android:textColor="@color/black"
-            android:textStyle="bold" />
+            android:text="Forgot Password?"
+            android:textSize="16sp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?android:attr/selectableItemBackground"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:padding="6dp"/>
 
         <Button
             android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
             android:backgroundTint="#464C59"
             android:elevation="0dp"

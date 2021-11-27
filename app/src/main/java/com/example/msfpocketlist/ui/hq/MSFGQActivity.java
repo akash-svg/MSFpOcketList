@@ -1,10 +1,12 @@
-package com.example.msfpocketlist;
+package com.example.msfpocketlist.ui.hq;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class MSF_HQ extends AppCompatActivity {
+import com.example.msfpocketlist.R;
+
+public class MSFGQActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

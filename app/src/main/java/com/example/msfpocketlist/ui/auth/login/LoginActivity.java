@@ -1,4 +1,4 @@
-package com.example.msfpocketlist;
+package com.example.msfpocketlist.ui.auth.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,20 +7,23 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+import com.example.msfpocketlist.R;
+import com.example.msfpocketlist.ui.auth.recover.ForgotPassword;
+
+public class LoginActivity extends AppCompatActivity {
     Button next;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
         next=findViewById(R.id.btn_next);
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,ForgotPassword.class);
+                Intent intent = new Intent(LoginActivity.this, ForgotPassword.class);
                 startActivity(intent);
             }
         });
