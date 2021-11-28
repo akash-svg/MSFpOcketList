@@ -17,7 +17,7 @@ public class ForgotPassword extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password);
-
+        getSupportActionBar().hide();
         nexe2=findViewById(R.id.btn_next_2);
 
         nexe2.setOnClickListener(new View.OnClickListener() {

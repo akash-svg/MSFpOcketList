@@ -8,6 +8,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -19,6 +22,8 @@ import com.example.msfpocketlist.R;
 
 public class MSFHQFragment extends Fragment {
     View view;
+    HQAdapter hqAdapter;
+    RecyclerView recyclerView;
 
     public MSFHQFragment() {
         // Required empty public constructor
@@ -34,10 +39,15 @@ public class MSFHQFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
          view = inflater.inflate(R.layout.fragment_hq, container, false);
-
-         Toolbar toolbar = view.findViewById(R.id.toolbar);
-        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
         ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("MSF HQ");
+
+        recyclerView = view.findViewById(R.id.hqRec);
+
+        hqAdapter = new HQAdapter();
+
+        recyclerView.setAdapter(hqAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setHasFixedSize(true);
 
 
 

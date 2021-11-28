@@ -12,7 +12,8 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_dodgeInsetEdges="bottom"/>
+        app:layout_dodgeInsetEdges="bottom"
+        android:layout_marginBottom="60dp"/>
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
@@ -27,16 +28,19 @@
             android:layout_height="match_parent"
             android:background="@android:color/transparent"
             app:labelVisibilityMode="labeled"
+            app:itemTextColor="@color/bottom_menu_selector"
+            app:itemIconTint="@color/bottom_menu_selector"
             app:menu="@menu/bottom_menu" />
     </com.google.android.material.bottomappbar.BottomAppBar>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_sync"
         android:maxWidth="40dp"
-        app:fabSize="normal"
+        android:src="@drawable/ic_sync"
         app:backgroundTint="@color/white"
+        app:fabSize="normal"
         app:layout_anchor="@id/bottomAppBar"
-        tools:ignore="ContentDescription" />
+        tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
