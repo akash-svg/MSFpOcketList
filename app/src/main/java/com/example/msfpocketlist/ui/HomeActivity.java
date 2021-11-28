@@ -1,4 +1,4 @@
-package com.example.msfpocketlist.ui.hq;
+package com.example.msfpocketlist.ui;
 
 
 
@@ -18,6 +18,7 @@ import android.view.View;
 import com.example.msfpocketlist.R;
 import com.example.msfpocketlist.ui.account.AccountFragment;
 import com.example.msfpocketlist.ui.emergency.EmergencyFragment;
+import com.example.msfpocketlist.ui.hq.MSFHQFragment;
 import com.example.msfpocketlist.ui.mission.MissionActivity;
 import com.example.msfpocketlist.ui.mission.MissionFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;

@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="90dp"
-        tools:listitem="@layout/cardview_mission"
+        tools:listitem="@layout/list_mission_layout"
         android:layout_below="@id/include"/>
 
     <com.google.android.material.bottomappbar.BottomAppBar

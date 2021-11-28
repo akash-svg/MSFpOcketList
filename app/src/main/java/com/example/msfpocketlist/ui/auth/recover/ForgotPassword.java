@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.msfpocketlist.ui.hq.HomeActivity;
+import com.example.msfpocketlist.ui.HomeActivity;
 import com.example.msfpocketlist.R;
 
 public class ForgotPassword extends AppCompatActivity {

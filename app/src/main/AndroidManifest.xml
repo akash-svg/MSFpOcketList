@@ -25,7 +25,7 @@
             android:name=".ui.hq.MSFGQActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.hq.HomeActivity"
+            android:name=".ui.HomeActivity"
             android:exported="true" />
         <activity
             android:name=".ui.auth.recover.ForgotPassword"
