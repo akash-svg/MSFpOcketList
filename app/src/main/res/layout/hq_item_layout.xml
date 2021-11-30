@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_margin="5dp"
+    android:layout_marginStart="5dp"
+    android:layout_marginEnd="5dp"
+    android:layout_marginTop="5dp"
     android:padding="4dp"
     android:background="@drawable/list_item_hq_background"
     android:elevation="4dp">
@@ -36,24 +39,28 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_alignParentEnd="true">
+
             <ImageButton
                 android:id="@+id/directCall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_phone"
+                android:layout_marginEnd="20dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
                 android:focusable="true"
-                android:layout_marginEnd="20dp"
-                android:background="?android:attr/selectableItemBackgroundBorderless"/>
+                android:src="@drawable/ic_phone"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
             <ImageButton
                 android:id="@+id/onlineCalling"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_headset"
+                android:layout_marginStart="20dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
                 android:focusable="true"
-                android:layout_marginStart="20dp"
-                android:background="?android:attr/selectableItemBackgroundBorderless"/>
+                android:src="@drawable/ic_headset"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
         </LinearLayout>
 
 

@@ -4,22 +4,15 @@ package com.example.msfpocketlist.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 
 import com.example.msfpocketlist.R;
 import com.example.msfpocketlist.ui.account.AccountFragment;
 import com.example.msfpocketlist.ui.emergency.EmergencyFragment;
 import com.example.msfpocketlist.ui.hq.MSFHQFragment;
-import com.example.msfpocketlist.ui.mission.MissionActivity;
 import com.example.msfpocketlist.ui.mission.MissionFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;

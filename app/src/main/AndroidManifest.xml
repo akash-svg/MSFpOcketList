@@ -19,12 +19,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.mission.MissionActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.hq.MSFGQActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.HomeActivity"
             android:exported="true" />
         <activity

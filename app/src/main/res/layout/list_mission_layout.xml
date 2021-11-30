@@ -4,6 +4,9 @@
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
     android:background="@drawable/list_item_mission_background"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
     android:elevation="4dp"
     >
 
