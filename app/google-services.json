@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "431198960617",
+    "project_id": "msfpocketlist",
+    "storage_bucket": "msfpocketlist.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:431198960617:android:28886d0200b1e6d825e978",
+        "android_client_info": {
+          "package_name": "com.example.msfpocketlist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "431198960617-4v8dpgkck84eud9tqusva0fvapq3ch9k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbMzn-iN1gsuCFcf5A63wGGAizde4m24k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "431198960617-4v8dpgkck84eud9tqusva0fvapq3ch9k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

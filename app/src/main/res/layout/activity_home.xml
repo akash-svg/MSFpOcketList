@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray"
-    tools:context=".ui.HomeActivity">
+    tools:context=".ui.dashboard.HomeActivity">
 
     <FrameLayout
         android:id="@+id/container"
@@ -26,8 +26,8 @@
             android:id="@+id/bottomNavView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            app:labelVisibilityMode="unlabeled"
             android:background="@android:color/transparent"
-            app:labelVisibilityMode="labeled"
             app:itemTextColor="@color/bottom_menu_selector"
             app:itemIconTint="@color/bottom_menu_selector"
             app:menu="@menu/bottom_menu" />
@@ -43,4 +43,6 @@
         app:fabSize="normal"
         app:layout_anchor="@id/bottomAppBar"
         tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
+
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

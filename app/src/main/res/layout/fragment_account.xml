@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.account.AccountFragment">
+    tools:context=".ui.dashboard.account.AccountFragment">
 
 
     <LinearLayout
@@ -25,40 +25,35 @@
             android:layout_height="100dp"
             android:layout_gravity="center">
 
-            <com.google.android.material.imageview.ShapeableImageView
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/userImg"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:layout_margin="10dp"
-                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
-                app:srcCompat="@mipmap/ic_launcher" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:src="@drawable/ic_camera" />
+                app:civ_border_color="@color/purple_200"
+                app:civ_border_width="2dp"
+                android:src="@mipmap/ic_launcher" />
         </RelativeLayout>
 
         <TextView
+            android:id="@+id/userNameEd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:fontFamily="@font/noto_sans"
+            android:fontFamily="@font/din_rounded_bold"
             android:padding="4dp"
-            android:text="User Name"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            tools:text="User Name" />
 
         <TextView
+            android:id="@+id/userDesignation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:fontFamily="@font/noto_sans"
+            android:fontFamily="@font/din_rounded_bold"
             android:padding="4dp"
-            android:text="Designation"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            tools:text="Designation" />
     </LinearLayout>
 
     <LinearLayout
@@ -81,7 +76,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:hint="Phone Number"
+            android:hint="@string/phone_number"
             app:boxStrokeColor="#464C59"
             app:boxStrokeWidth="3dp">
 
@@ -91,7 +86,9 @@
                 android:layout_height="match_parent"
                 android:drawableStart="@drawable/ic_iphone"
                 android:drawablePadding="4dp"
-                android:text="+8801753269587" />
+                android:enabled="false"
+                android:fontFamily="@font/din_rounded_bold"
+                tools:text="+8801753269587" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -99,7 +96,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:hint="Email"
+            android:hint="@string/email"
             app:boxStrokeColor="#464C59"
             app:boxStrokeWidth="3dp">
 
@@ -109,7 +106,9 @@
                 android:layout_height="match_parent"
                 android:drawableStart="@drawable/ic_email"
                 android:drawablePadding="4dp"
-                android:text="xyz@example.com" />
+                android:enabled="false"
+                android:fontFamily="@font/din_rounded_bold"
+                tools:text="xyz@example.com" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -117,7 +116,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:hint="Address"
+            android:hint="@string/address"
             app:boxStrokeColor="#464C59"
             app:boxStrokeWidth="3dp">
 
@@ -127,55 +126,11 @@
                 android:layout_height="match_parent"
                 android:drawableStart="@drawable/ic_location"
                 android:drawablePadding="4dp"
-                android:text="Bangladesh" />
+                android:enabled="false"
+                android:fontFamily="@font/din_rounded_bold"
+                tools:text="Bangladesh" />
         </com.google.android.material.textfield.TextInputLayout>
 
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:fontFamily="@font/noto_sans"
-            android:text="Gender"
-            android:textSize="16sp" />
-
-        <RadioGroup
-            android:id="@+id/genderGroup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal"
-            android:weightSum="3">
-
-            <RadioButton
-                android:id="@+id/maleChecked"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/noto_sans"
-                android:padding="4dp"
-                android:text="Male" />
-
-            <RadioButton
-                android:id="@+id/femaleChecked"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/noto_sans"
-                android:padding="4dp"
-                android:text="Female" />
-
-            <RadioButton
-                android:id="@+id/otherChecked"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/noto_sans"
-                android:padding="4dp"
-                android:text="Other" />
-        </RadioGroup>
     </LinearLayout>
 
     <TextView
@@ -183,24 +138,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:fontFamily="@font/noto_sans"
-        android:text="Version v1.01"
+        android:fontFamily="@font/din_rounded_bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        tools:text="Version v1.01" />
 
     <Button
-        android:id="@+id/btn_login"
+        android:id="@+id/logout_btn"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="10dp"
         android:backgroundTint="#464C59"
         android:elevation="0dp"
-        android:text="Update Profile"
+        android:fontFamily="@font/din_rounded_bold"
+        android:text="@string/logout"
+        android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appVersion" />
 

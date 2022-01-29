@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,17 +7,17 @@
     android:background="@color/gray"
     tools:context=".ui.auth.login.LoginActivity">
 
-    <View
+    <ImageView
         android:id="@+id/rectangle_3"
         android:layout_width="115dp"
         android:layout_height="105dp"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="68dp"
-        android:background="@color/teal_700"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_logo"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -28,10 +27,11 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="30dp"
+        android:fontFamily="@font/roboto_medium"
         android:gravity="center"
-        android:text="MSF Pocket List"
+        android:textColor="@color/black"
+        android:text="@string/msf_pocket_list"
         android:textSize="30sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/rectangle_3"
         app:layout_constraintStart_toStartOf="@+id/rectangle_3"
         app:layout_constraintTop_toBottomOf="@+id/rectangle_3" />
@@ -50,76 +50,55 @@
         tools:ignore="MissingConstraints">
 
         <EditText
-            android:id="@+id/mobile_number"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:hint="Enter your Number"
-                android:paddingLeft="15dp"
-                android:fontFamily="@font/noto_sans"
-                android:background="@color/white"
-                android:imeOptions="actionNext"
-                android:inputType="number"
-                tools:ignore="Autofill"/>
+            android:id="@+id/user_email"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/white"
+           android:drawableLeft="@drawable/ic_baseline_email_24"
+            android:drawablePadding="4dp"
+            android:fontFamily="@font/roboto"
+            android:hint="@string/enter_your_number"
+            android:imeOptions="actionNext"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textCursorDrawable="@drawable/cursor"
+            android:autofillHints="phone" />
 
 
-            <EditText
-                android:id="@+id/login_pass"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="10dp"
-                android:hint="Enter your Password"
-                android:paddingLeft="15dp"
-                android:fontFamily="@font/noto_sans"
-                android:background="@color/white"
-                android:imeOptions="actionNext"
-                android:inputType="number"
-                tools:ignore="Autofill"/>
-
-
-        <TextView
-            android:id="@+id/btn_forget"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:backgroundTint="@color/gray"
-            android:elevation="0dp"
-            android:fontFamily="@font/noto_sans"
-            android:text="Forgot Password?"
-            android:textSize="16sp"
-            android:clickable="true"
-            android:focusable="true"
-            android:background="?android:attr/selectableItemBackground"
-            android:textStyle="bold"
+        <EditText
+            android:id="@+id/login_pass"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
             android:layout_marginTop="10dp"
-            android:padding="6dp"/>
+            android:background="@color/white"
+            android:drawableStart="@drawable/ic_lock"
+            android:drawablePadding="4dp"
+            android:fontFamily="@font/roboto"
+            android:hint="@string/enter_your_password"
+            android:imeOptions="actionNext"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:longClickable="false"
+            android:textCursorDrawable="@drawable/cursor"
+            android:textColor="@color/black"
+            tools:ignore="Autofill" />
 
         <Button
             android:id="@+id/btn_login"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"
             android:backgroundTint="#464C59"
             android:elevation="0dp"
-            android:text="Login"
+            android:fontFamily="@font/roboto_medium"
+            android:text="@string/login"
             android:textColor="@color/white"
 
             />
 
     </LinearLayout>
-
-    <Button
-        android:id="@+id/btn_next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="156dp"
-        android:backgroundTint="@color/white"
-        android:text="Next"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Linear_one"
-        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

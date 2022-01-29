@@ -14,7 +14,14 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="fullscreen" parent="Theme.MSFPocketList">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
     <style name="ShapeAppearanceOverlay.App.CornerSize50Percent" parent="">
         <item name="cornerSize">50%</item>
     </style>
+
+
+
 </resources>

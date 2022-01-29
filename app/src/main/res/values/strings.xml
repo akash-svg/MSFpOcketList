@@ -1,4 +1,30 @@
 <resources>
     <string name="app_name">MSFPocketList</string>
+    <string name="msf_pocket_list">MSF Pocket List</string>
+    <string name="enter_your_password">Enter your Password</string>
+    <string name="enter_your_number">Enter your Number</string>
+    <string name="department_name">Department</string>
+    <string name="designation">Designation</string>
+    <string name="number">+8801767535345</string>
+    <string name="content">content</string>
+    <string name="phone_calling">phone calling</string>
+    <string name="online_calling">online calling</string>
+    <string name="login">Login</string>
+    <string name="mission_data">Mission Data</string>
+    <string name="sync">Sync</string>
+    <string name="employee_data">Headquarter Employee Data</string>
+    <string name="pocket_data">Pocket Data</string>
+    <string name="no_data_found">No Data Found</string>
+    <string name="email_error">Please enter your email</string>
+    <string name="pass_error">Please enter password</string>
+    <string name="email">Email</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="address">Mission</string>
+    <string name="logout">Logout</string>
+    <string name="emergency_data">Emergency Employee Data</string>
+    <string name="msf_hq">MSF HQ</string>
+    <string name="mission">Mission</string>
+    <string name="emergency">Emergency</string>
+    <string name="account">Account</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>
