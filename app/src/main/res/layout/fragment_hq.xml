@@ -5,38 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.dashboard.hq.MSFHQFragment">
-    <androidx.cardview.widget.CardView
+
+    <include
         android:id="@+id/con"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        layout="@layout/connection_layout"
         android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:cardBackgroundColor="#FF474B5A"
-        app:layout_constraintVertical_bias="0.0"
-        app:cardElevation="16dp"
-        tools:visibility="visible">
+        tools:visibility="visible"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:fontFamily="@font/din_rounded_bold"
-            android:padding="5dp"
-            android:textColor="@color/white"
-            android:text="No internet connection" />
-    </androidx.cardview.widget.CardView>
-
-    <androidx.recyclerview.widget.RecyclerView
+    <com.todkars.shimmer.ShimmerRecyclerView
         android:id="@+id/hqRec"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:orientation="vertical"
+        android:overScrollMode="never"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:listitem="@layout/list_hq_items_layout"
-        app:layout_constraintTop_toBottomOf="@id/con" />
+        app:layout_constraintTop_toBottomOf="@id/con"
+        app:shimmer_recycler_layout="@layout/list_hq_items_shimmer"
+        tools:itemCount="10" />
 
     <TextView
         android:id="@+id/noDataFound"

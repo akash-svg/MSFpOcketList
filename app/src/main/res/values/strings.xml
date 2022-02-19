@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MSFPocketList</string>
+    <string name="app_name">MSF PocketList</string>
     <string name="msf_pocket_list">MSF Pocket List</string>
     <string name="enter_your_password">Enter your Password</string>
     <string name="enter_your_number">Enter your Number</string>
@@ -13,7 +13,7 @@
     <string name="mission_data">Mission Data</string>
     <string name="sync">Sync</string>
     <string name="employee_data">Headquarter Employee Data</string>
-    <string name="pocket_data">Pocket Data</string>
+    <string name="pocket_data">Projects Data</string>
     <string name="no_data_found">No Data Found</string>
     <string name="email_error">Please enter your email</string>
     <string name="pass_error">Please enter password</string>
@@ -26,5 +26,8 @@
     <string name="mission">Mission</string>
     <string name="emergency">Emergency</string>
     <string name="account">Account</string>
+    <string name="no_internet_connection">No internet connection</string>
+    <string name="phone">Phone</string>
+    <string name="all_employee">All Employee Data</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

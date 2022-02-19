@@ -3,7 +3,33 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/background_accept_invitation.xml" value="0.286" />
+        <entry key="app/src/main/res/drawable/bg_shimmer_mission.xml" value="0.286" />
+        <entry key="app/src/main/res/drawable/ic_mobile.xml" value="0.286" />
+        <entry key="app/src/main/res/drawable/ic_msf.xml" value="0.286" />
+        <entry key="app/src/main/res/drawable/ic_phone.xml" value="0.286" />
+        <entry key="app/src/main/res/layout/activity_account.xml" value="0.18229166666666666" />
         <entry key="app/src/main/res/layout/activity_call.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/layout/activity_employee.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/layout/activity_msfactivity.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/layout/activity_pocket.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/layout/activity_profile_one.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/layout/activity_profile_shimmer.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/layout/activity_spash.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/layout/activity_sync.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/layout/connection_layout.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/layout/dialog_loading.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/layout/fragment_account.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/layout/fragment_emergency.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/layout/fragment_hq.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/layout/fragment_mission.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/layout/image_selection_layout.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/layout/list_hq_items_layout.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/layout/list_hq_items_shimmer.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/layout/list_mission_layout.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/layout/list_mission_shimmer.xml" value="0.35572916666666665" />
       </map>
     </option>
   </component>

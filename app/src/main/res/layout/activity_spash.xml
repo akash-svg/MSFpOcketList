@@ -13,6 +13,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:srcCompat="@drawable/ic_msf"/>
+        app:srcCompat="@drawable/logo_msf_one"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

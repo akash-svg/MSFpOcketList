@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "431198960617",
-    "project_id": "msfpocketlist",
-    "storage_bucket": "msfpocketlist.appspot.com"
+    "project_number": "956785695352",
+    "project_id": "msfpocketlist-60eb4",
+    "storage_bucket": "msfpocketlist-60eb4.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:431198960617:android:28886d0200b1e6d825e978",
+        "mobilesdk_app_id": "1:956785695352:android:0992efeed13a61160f6b8d",
         "android_client_info": {
-          "package_name": "com.example.msfpocketlist"
+          "package_name": "com.msfpocketlist"
         }
       },
       "oauth_client": [
         {
-          "client_id": "431198960617-4v8dpgkck84eud9tqusva0fvapq3ch9k.apps.googleusercontent.com",
+          "client_id": "956785695352-4nfuuvifmteciq0bsf41hmhs4bn7a6l4.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBbMzn-iN1gsuCFcf5A63wGGAizde4m24k"
+          "current_key": "AIzaSyCLjBNWkKjvqqnbmJb_KbQB4FU79rVWc84"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "431198960617-4v8dpgkck84eud9tqusva0fvapq3ch9k.apps.googleusercontent.com",
+              "client_id": "956785695352-4nfuuvifmteciq0bsf41hmhs4bn7a6l4.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

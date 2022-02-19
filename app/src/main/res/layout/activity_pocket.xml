@@ -15,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:cardBackgroundColor="#FF474B5A"
+        app:cardBackgroundColor="@color/red"
         app:layout_constraintVertical_bias="0.0"
         app:cardElevation="16dp"
         tools:visibility="visible">
@@ -30,14 +30,18 @@
             android:text="No internet connection" />
     </androidx.cardview.widget.CardView>
 
-    <androidx.recyclerview.widget.RecyclerView
+    <com.todkars.shimmer.ShimmerRecyclerView
         android:id="@+id/pocketRec"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:orientation="vertical"
+        android:overScrollMode="never"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/con" />
+        app:layout_constraintTop_toBottomOf="@+id/con"
+        tools:itemCount="20"
+        app:shimmer_recycler_layout="@layout/list_mission_shimmer" />
     <TextView
         android:id="@+id/noDataFound"
         android:layout_width="wrap_content"

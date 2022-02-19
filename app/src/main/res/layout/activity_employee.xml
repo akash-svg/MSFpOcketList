@@ -6,38 +6,37 @@
     android:layout_height="match_parent"
     tools:context=".ui.employee.EmployeeActivity">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/con"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <include
+        android:id="@+id/conLay"
+        layout="@layout/connection_layout"
         android:visibility="gone"
-        app:cardBackgroundColor="#FF474B5A"
-        app:cardElevation="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:visibility="visible">
+        tools:visibility="visible"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:fontFamily="@font/din_rounded_bold"
-            android:padding="5dp"
-            android:text="No internet connection"
-            android:textColor="@color/white" />
-    </androidx.cardview.widget.CardView>
-
-    <androidx.recyclerview.widget.RecyclerView
+    <com.todkars.shimmer.ShimmerRecyclerView
         android:id="@+id/employeeRec"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:orientation="vertical"
+        android:overScrollMode="never"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/con" />
+        app:layout_constraintTop_toBottomOf="@id/conLay"
+        app:shimmer_recycler_layout="@layout/list_hq_items_shimmer"
+        tools:itemCount="10" />
+    <com.todkars.shimmer.ShimmerRecyclerView
+        android:id="@+id/employeeRecCache"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:overScrollMode="never"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/conLay"
+        app:shimmer_recycler_layout="@layout/list_hq_items_shimmer"
+        tools:itemCount="10" />
 
     <TextView
         android:id="@+id/noDataFound"

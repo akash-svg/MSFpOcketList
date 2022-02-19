@@ -2,108 +2,117 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="5dp"
     android:layout_marginTop="5dp"
     android:layout_marginEnd="5dp"
     android:clickable="true"
+    android:elevation="2dp"
     android:focusable="true"
-    android:id="@+id/cardView"
-    app:cardCornerRadius="5dp"
     android:foreground="?android:attr/selectableItemBackground"
-    android:elevation="2dp">
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="10dp">
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/content"
-        android:src="@drawable/ic_cell"
-        app:layout_constraintBottom_toBottomOf="@+id/infoLay"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/infoLay"
-        tools:ignore="ImageContrastCheck" />
+    app:cardCornerRadius="5dp">
 
-    <LinearLayout
-        android:id="@+id/infoLay"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:orientation="vertical"
-        android:padding="2dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="parent">
+        android:padding="10dp">
 
-        <TextView
-            android:id="@+id/deptName"
+        <ImageView
+            android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/din_rounded_bold"
+            android:contentDescription="@string/content"
+            android:src="@drawable/ic_cell"
+            app:layout_constraintBottom_toBottomOf="@+id/infoLay"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/infoLay"
+            tools:ignore="ImageContrastCheck" />
+
+        <LinearLayout
+            android:id="@+id/infoLay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:orientation="vertical"
             android:padding="2dp"
-            android:text="@string/department_name"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/deptContact"
+            <TextView
+                android:id="@+id/designation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/din_rounded_bold"
+                android:padding="2dp"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="@string/designation" />
+
+            <TextView
+                android:id="@+id/deptContact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/din_rounded_bold"
+                tools:text="@string/number" />
+            <TextView
+                android:id="@+id/deptContactOne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/din_rounded_bold"
+                tools:text="@string/number" />
+
+            <TextView
+                android:id="@+id/dept_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/din_rounded_bold"
+                tools:text="@string/email" />
+
+            <TextView
+                android:id="@+id/deptName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/din_rounded_bold"
+                tools:text="@string/department_name" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/din_rounded_bold"
-            android:text="@string/number" />
-        <TextView
-            android:id="@+id/dept_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/din_rounded_bold"
-            android:text="@string/email"
-            />
-        <TextView
-            android:id="@+id/designation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/din_rounded_bold"
-            android:text="@string/designation" />
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/infoLay"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/infoLay">
 
-    </LinearLayout>
+            <ImageButton
+                android:id="@+id/directCall"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="20dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:contentDescription="@string/phone_calling"
+                android:focusable="true"
+                android:src="@drawable/ic_phone" />
 
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="@+id/infoLay"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/infoLay">
-
-        <ImageButton
-            android:id="@+id/directCall"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginEnd="20dp"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
-            android:contentDescription="@string/phone_calling"
-            android:focusable="true"
-            android:src="@drawable/ic_phone" />
-
-        <ImageButton
-            android:id="@+id/onlineCalling"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:clickable="true"
-            android:contentDescription="@string/online_calling"
-            android:focusable="true"
-            android:src="@drawable/ic_headset" />
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageButton
+                android:id="@+id/onlineCalling"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:contentDescription="@string/online_calling"
+                android:focusable="true"
+                android:src="@drawable/ic_mobile" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

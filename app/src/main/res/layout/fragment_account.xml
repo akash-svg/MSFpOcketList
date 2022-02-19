@@ -6,6 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".ui.dashboard.account.AccountFragment">
 
+    <include
+        android:id="@+id/con"
+        layout="@layout/connection_layout"
+        android:visibility="gone"
+        tools:visibility="visible"/>
+
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -18,7 +24,7 @@
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/con">
 
         <RelativeLayout
             android:layout_width="100dp"
@@ -82,6 +88,26 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/userPhone"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableStart="@drawable/ic_iphone"
+                android:drawablePadding="4dp"
+                android:enabled="false"
+                android:fontFamily="@font/din_rounded_bold"
+                tools:text="+8801753269587" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="@string/phone_number"
+            app:boxStrokeColor="#464C59"
+            app:boxStrokeWidth="3dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/userPhoneOne"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:drawableStart="@drawable/ic_iphone"

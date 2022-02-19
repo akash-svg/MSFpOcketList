@@ -5,56 +5,63 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.profile.ProfileActivity">
-    <androidx.cardview.widget.CardView
+    <include
         android:id="@+id/con"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        layout="@layout/connection_layout"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:cardBackgroundColor="#FF474B5A"
-        app:layout_constraintVertical_bias="0.0"
-        app:cardElevation="16dp"
-        tools:visibility="visible">
+        tools:visibility="visible" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:fontFamily="@font/din_rounded_bold"
-            android:padding="5dp"
-            android:textColor="@color/white"
-            android:text="No internet connection" />
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/profileCard"
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerFrameLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.19999999">
+        app:layout_constraintTop_toBottomOf="@id/con">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/activity_profile_shimmer" />
+
+        </LinearLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <LinearLayout
+        android:id="@+id/detailLay"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/con"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <LinearLayout
+            android:id="@+id/infoLay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="10dp">
+            app:layout_constraintTop_toBottomOf="@id/con"
+            android:padding="10dp"
+            android:elevation="4dp"
+            android:background="@drawable/list_item_hq_background"
+            android:layout_margin="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profileImg"
                 android:layout_width="80dp"
-                android:layout_height="80dp"
-                 />
+                android:layout_height="80dp" />
 
             <TextView
                 android:id="@+id/userName"
@@ -77,25 +84,126 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/din_rounded_bold"
                 tools:text="Mission" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/emailLay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/list_item_hq_background"
+            android:elevation="4dp"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:layout_constraintEnd_toStartOf="@+id/con"
+            app:layout_constraintStart_toEndOf="@+id/con"
+            app:layout_constraintTop_toBottomOf="@+id/infoLay">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/din_rounded_bold"
+                android:textSize="16sp"
+                android:padding="4dp"
+                android:text="@string/email"
+                android:drawablePadding="4dp"
+                app:drawableLeftCompat="@drawable/ic_email" />
 
             <TextView
                 android:id="@+id/email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                tools:text="johny.ice10@gmail.com"
                 android:fontFamily="@font/din_rounded_bold"
-                tools:text="example@mail.com" />
+                android:layout_alignParentEnd="true"
+                android:textSize="16sp"
+                android:padding="4dp"
+                tools:ignore="RelativeOverlap" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/phoneOneLay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/list_item_hq_background"
+            android:elevation="4dp"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:layout_constraintEnd_toStartOf="@+id/con"
+            app:layout_constraintStart_toEndOf="@+id/con"
+            app:layout_constraintTop_toBottomOf="@+id/emailLay">
 
             <TextView
-                android:id="@+id/phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/din_rounded_bold"
+                android:textSize="16sp"
+                android:padding="4dp"
+                android:text="@string/phone"/>
+
+            <TextView
+                android:id="@+id/phoneOne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:fontFamily="@font/din_rounded_bold"
+                android:padding="4dp"
+                android:textSize="16sp"
+                tools:ignore="RelativeOverlap"
                 tools:text="01767535372" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
+        <RelativeLayout
+            android:id="@+id/phoneTwoLay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/list_item_hq_background"
+            android:elevation="4dp"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:layout_constraintEnd_toStartOf="@+id/con"
+            app:layout_constraintStart_toEndOf="@+id/con"
+            app:layout_constraintTop_toBottomOf="@+id/phoneOneLay">
 
-    </androidx.cardview.widget.CardView>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/din_rounded_bold"
+                android:textSize="16sp"
+                android:padding="4dp"
+                android:text="@string/phone"/>
+
+            <TextView
+                android:id="@+id/phoneTwo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:fontFamily="@font/din_rounded_bold"
+                android:padding="4dp"
+                android:textSize="16sp"
+                tools:ignore="RelativeOverlap"
+                tools:text="01767535372" />
+        </RelativeLayout>
+    </LinearLayout>
+
     <TextView
         android:id="@+id/noDataFound"
         android:layout_width="wrap_content"
@@ -107,7 +215,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:visibility="visible"
         tools:text="No Data Found!"/>
 
 
