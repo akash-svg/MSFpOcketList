@@ -5,6 +5,8 @@
       <map>
         <entry key="app/src/main/res/drawable/background_accept_invitation.xml" value="0.286" />
         <entry key="app/src/main/res/drawable/bg_shimmer_mission.xml" value="0.286" />
+        <entry key="app/src/main/res/drawable/ic_baseline_phone.xml" value="0.286" />
+        <entry key="app/src/main/res/drawable/ic_baseline_phone_iphone.xml" value="0.286" />
         <entry key="app/src/main/res/drawable/ic_mobile.xml" value="0.286" />
         <entry key="app/src/main/res/drawable/ic_msf.xml" value="0.286" />
         <entry key="app/src/main/res/drawable/ic_phone.xml" value="0.286" />

@@ -1,14 +1,21 @@
 package com.msfpocketlist.ui.profile;
 
+
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.msfpocketlist.BaseClass;
@@ -16,7 +23,6 @@ import com.msfpocketlist.R;
 import com.msfpocketlist.common.Constant;
 import com.msfpocketlist.data.EmployeeAll;
 import com.msfpocketlist.data.UserInfo;
-import com.msfpocketlist.databinding.ActivityProfileBinding;
 import com.msfpocketlist.network.NetworkReceiver;
 import com.msfpocketlist.remote.ApiClient;
 import com.msfpocketlist.remote.ApiInterface;
@@ -27,25 +33,28 @@ import com.vmadalin.easypermissions.dialogs.SettingsDialog;
 
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 
 public class ProfileActivity extends AppCompatActivity implements NetworkReceiver.ConnectivityReceiverListener, EasyPermissions.PermissionCallbacks {
-    ActivityProfileBinding binding;
     int userId, missionId, pocketId;
     ApiInterface apiInterface;
     ProfileRepository repository;
     NetworkReceiver receiver;
     private static final int PERMISSION_CALL_REQUEST_CODE = 1;
+    LinearLayout infoLay;
+    CircleImageView profileImg;
+    TextView userName, designation, mission, email, phoneOne, phoneTwo, noDataFound;
+    ImageView phoneTwoLay, phoneOneLay, emailLay;
+    View con;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityProfileBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-
+        setContentView(R.layout.activity_profile);
         //header
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle("Profile");
@@ -58,6 +67,22 @@ public class ProfileActivity extends AppCompatActivity implements NetworkReceive
             missionId = getIntent().getIntExtra("missionId", -2);
             pocketId = getIntent().getIntExtra("pocketId", -3);
         }
+
+        //init views
+        infoLay = findViewById(R.id.infoLay);
+        profileImg = findViewById(R.id.profileImg);
+        userName = findViewById(R.id.userName);
+        designation = findViewById(R.id.designation);
+        mission = findViewById(R.id.mission);
+        email = findViewById(R.id.email);
+        phoneOne = findViewById(R.id.phoneOne);
+        phoneTwo = findViewById(R.id.phoneTwo);
+        noDataFound = findViewById(R.id.noDataFound);
+        phoneOneLay = findViewById(R.id.phoneOneLay);
+        phoneTwoLay = findViewById(R.id.phoneTwoLay);
+        emailLay = findViewById(R.id.emailLay);
+        con = findViewById(R.id.con);
+
         //retrofit
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
         repository = new ProfileRepository(getApplication());
@@ -66,33 +91,17 @@ public class ProfileActivity extends AppCompatActivity implements NetworkReceive
         receiver = new NetworkReceiver();
         BaseClass.getInstance().setConnectivityListener(this);
 
-
-
-        binding.emailLay.setOnClickListener(v->{
+        emailLay.setOnClickListener(v -> {
             Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
-            emailIntent.setData(Uri.parse("mailto:"+binding.email.getText().toString()));
+            emailIntent.setData(Uri.parse("mailto:" + email.getText().toString()));
             startActivity(Intent.createChooser(emailIntent, "Send feedback"));
         });
 
-        binding.phoneOneLay.setOnClickListener(v->{
+        phoneOneLay.setOnClickListener(v -> {
             if (hasCallPermission()) {
                 try {
                     Intent intent = new Intent(Intent.ACTION_CALL);
-                    intent.setData(Uri.parse("tel:" + binding.phoneOne.getText().toString()));
-                    startActivity(intent);
-                } catch (Exception e) {
-                    Toast.makeText(this, "Error in your phone call" + e.getMessage(), Toast.LENGTH_LONG).show();
-                }
-            } else {
-                requestCallPermission();
-            }
-        });
-
-        binding.phoneTwoLay.setOnClickListener(v->{
-            if (hasCallPermission()) {
-                try {
-                    Intent intent = new Intent(Intent.ACTION_CALL);
-                    intent.setData(Uri.parse("tel:" + binding.phoneTwo.getText().toString()));
+                    intent.setData(Uri.parse("tel:" + phoneOne.getText().toString()));
                     startActivity(intent);
                 } catch (Exception e) {
                     Toast.makeText(this, "Error in your phone call" + e.getMessage(), Toast.LENGTH_LONG).show();
@@ -103,31 +112,37 @@ public class ProfileActivity extends AppCompatActivity implements NetworkReceive
         });
 
 
-
+        phoneTwoLay.setOnClickListener(v -> {
+            if (hasCallPermission()) {
+                try {
+                    Intent intent = new Intent(Intent.ACTION_CALL);
+                    intent.setData(Uri.parse("tel:" + phoneTwo.getText().toString()));
+                    startActivity(intent);
+                } catch (Exception e) {
+                    Toast.makeText(this, "Error in your phone call" + e.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            } else {
+                requestCallPermission();
+            }
+        });
     }
 
     private void getCacheData() {
         try {
             EmployeeAll localData = repository.getAllPocket(userId);
-            if (localData !=null){
-                binding.shimmerFrameLayout.setVisibility(View.GONE);
-                binding.noDataFound.setVisibility(View.GONE);
+            if (localData != null) {
+                noDataFound.setVisibility(View.GONE);
                 setUserDataLocal(localData);
-                binding.detailLay.setVisibility(View.VISIBLE);
-            }else{
-                binding.shimmerFrameLayout.setVisibility(View.GONE);
-                binding.noDataFound.setVisibility(View.VISIBLE);
-                binding.noDataFound.setText(getString(R.string.no_data_found));
+            } else {
+                infoLay.setVisibility(View.GONE);
+                noDataFound.setVisibility(View.VISIBLE);
+                noDataFound.setText(getString(R.string.no_data_found));
             }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
-            binding.shimmerFrameLayout.setVisibility(View.GONE);
         }
     }
-
-
 
 
     private void getUserDetail(int userId) {
@@ -140,12 +155,10 @@ public class ProfileActivity extends AppCompatActivity implements NetworkReceive
                     UserInfo userInfo = response.body();
                     if (userInfo != null) {
                         if (userInfo.response == 200) {
-                            binding.noDataFound.setVisibility(View.GONE);
+                            noDataFound.setVisibility(View.GONE);
                             UserInfo.Profile data = userInfo.profile;
                             setUserData(data);
-                            binding.shimmerFrameLayout.setVisibility(View.GONE);
-                            binding.detailLay.setVisibility(View.VISIBLE);
-                        }else{
+                        } else {
                             getCacheData();
                         }
                     } else {
@@ -158,10 +171,8 @@ public class ProfileActivity extends AppCompatActivity implements NetworkReceive
 
             @Override
             public void onFailure(@NonNull Call<UserInfo> call, @NonNull Throwable t) {
-                binding.shimmerFrameLayout.setVisibility(View.GONE);
-                Toast.makeText(ProfileActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
-                binding.noDataFound.setVisibility(View.VISIBLE);
-                binding.noDataFound.setText(getString(R.string.no_data_found));
+                noDataFound.setVisibility(View.VISIBLE);
+                noDataFound.setText(getString(R.string.no_data_found));
             }
         });
     }
@@ -196,40 +207,77 @@ public class ProfileActivity extends AppCompatActivity implements NetworkReceive
         }
     }
 
-    private void setUserData(UserInfo.Profile data){
+    @SuppressLint("SetTextI18n")
+    private void setUserData(UserInfo.Profile data) {
         Glide.with(ProfileActivity.this)
                 .load(Constant.IMAGE_PATH + data.avatar)
                 .apply(new RequestOptions().placeholder(R.drawable.ic_user))
-                .into(binding.profileImg);
-        binding.userName.setText(data.fullName);
-        binding.designation.setText(data.designation+", "+data.department);
-        binding.mission.setText(data.missionTitle);
-        binding.email.setText(data.emailId);
-        binding.phoneOne.setText(data.mobileNo1);
-        binding.phoneTwo.setText(data.mobileNo2);
+                .into(profileImg);
+        userName.setText(data.fullName);
+        designation.setText(data.designation + ", " + data.department);
+        mission.setText(data.missionTitle);
+        if (data.emailId == null) {
+            emailLay.setVisibility(View.GONE);
+            email.setVisibility(View.GONE);
+        } else {
+            email.setText(data.emailId);
+        }
+
+        if (data.mobileNo1 == null) {
+            phoneOneLay.setVisibility(View.GONE);
+            phoneOne.setVisibility(View.GONE);
+        } else {
+            phoneOne.setText(data.mobileNo1);
+        }
+
+        if (data.mobileNo2 == null) {
+            phoneTwoLay.setVisibility(View.GONE);
+            phoneTwo.setVisibility(View.GONE);
+        } else {
+            phoneTwo.setText(data.mobileNo2);
+        }
+
     }
 
 
-    private void setUserDataLocal(EmployeeAll localData) {
+    @SuppressLint("SetTextI18n")
+    private void setUserDataLocal(EmployeeAll data) {
         Glide.with(ProfileActivity.this)
-                .load(Constant.IMAGE_PATH + localData.avatar)
+                .load(Constant.IMAGE_PATH + data.avatar)
                 .apply(new RequestOptions().placeholder(R.drawable.ic_user))
-                .into(binding.profileImg);
-        binding.userName.setText(localData.fullName);
-        binding.designation.setText(localData.designation+", "+localData.department);
-        binding.mission.setText(localData.missionTitle);
-        binding.email.setText(localData.emailId);
-        binding.phoneOne.setText(localData.mobileNo1);
-        binding.phoneTwo.setText(localData.mobileNo2);
+                .into(profileImg);
+        userName.setText(data.fullName);
+        designation.setText(data.designation + ", " + data.department);
+        mission.setText(data.missionTitle);
+        if (data.emailId == null) {
+            emailLay.setVisibility(View.GONE);
+            email.setVisibility(View.GONE);
+        } else {
+            email.setText(data.emailId);
+        }
+
+        if (data.mobileNo1 == null) {
+            phoneOneLay.setVisibility(View.GONE);
+            phoneOne.setVisibility(View.GONE);
+        } else {
+            phoneOne.setText(data.mobileNo1);
+        }
+
+        if (data.mobileNo2 == null) {
+            phoneTwoLay.setVisibility(View.GONE);
+            phoneTwo.setVisibility(View.GONE);
+        } else {
+            phoneTwo.setText(data.mobileNo2);
+        }
     }
 
     @Override
     public void onNetworkConnectionChanged(boolean isConnected) {
-        if (isConnected){
-            binding.con.getRoot().setVisibility(View.GONE);
+        if (isConnected) {
+            con.setVisibility(View.GONE);
             getUserDetail(userId);
-        }else{
-            binding.con.getRoot().setVisibility(View.VISIBLE);
+        } else {
+            con.setVisibility(View.VISIBLE);
             getCacheData();
         }
     }
@@ -237,7 +285,7 @@ public class ProfileActivity extends AppCompatActivity implements NetworkReceive
     @Override
     protected void onResume() {
         super.onResume();
-        registerReceiver(receiver,BaseClass.intentFilter);
+        registerReceiver(receiver, BaseClass.intentFilter);
     }
 
     @Override
@@ -246,7 +294,7 @@ public class ProfileActivity extends AppCompatActivity implements NetworkReceive
         unregisterReceiver(receiver);
     }
 
-    //permission related function starts here
+
     private Boolean hasCallPermission() {
         return EasyPermissions.hasPermissions(this, Manifest.permission.CALL_PHONE);
     }
@@ -276,6 +324,4 @@ public class ProfileActivity extends AppCompatActivity implements NetworkReceive
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this);
     }
-
-    //permission related function ends here
 }

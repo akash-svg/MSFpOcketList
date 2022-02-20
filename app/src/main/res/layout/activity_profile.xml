@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.profile.ProfileActivity">
+
     <include
         android:id="@+id/con"
         layout="@layout/connection_layout"
@@ -14,208 +15,153 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
 
-    <com.facebook.shimmer.ShimmerFrameLayout
-        android:id="@+id/shimmerFrameLayout"
+
+    <LinearLayout
+        android:id="@+id/infoLay"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@drawable/list_item_hq_background"
+        android:elevation="4dp"
+        android:gravity="center"
         android:orientation="vertical"
+        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/con">
 
-        <LinearLayout
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profileImg"
+            android:layout_width="80dp"
+            android:layout_height="80dp" />
+
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/din_rounded_bold"
+            tools:text="User Name" />
+
+        <TextView
+            android:id="@+id/designation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/din_rounded_bold"
+            tools:text="Department Designation" />
+
+        <TextView
+            android:id="@+id/mission"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/din_rounded_bold"
+            tools:text="Mission" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <include layout="@layout/activity_profile_shimmer" />
-
-        </LinearLayout>
-    </com.facebook.shimmer.ShimmerFrameLayout>
-
-    <LinearLayout
-        android:id="@+id/detailLay"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/con"
-        app:layout_constraintBottom_toBottomOf="parent">
-        <LinearLayout
-            android:id="@+id/infoLay"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="@id/con"
-            android:padding="10dp"
-            android:elevation="4dp"
-            android:background="@drawable/list_item_hq_background"
-            android:layout_margin="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profileImg"
-                android:layout_width="80dp"
-                android:layout_height="80dp" />
-
-            <TextView
-                android:id="@+id/userName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/din_rounded_bold"
-                tools:text="User Name" />
-
-            <TextView
-                android:id="@+id/designation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/din_rounded_bold"
-                tools:text="Department Designation" />
-
-            <TextView
-                android:id="@+id/mission"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/din_rounded_bold"
-                tools:text="Mission" />
-        </LinearLayout>
-
-        <RelativeLayout
-            android:id="@+id/emailLay"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/list_item_hq_background"
-            android:elevation="4dp"
-            android:orientation="horizontal"
-            android:padding="10dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            app:layout_constraintEnd_toStartOf="@+id/con"
-            app:layout_constraintStart_toEndOf="@+id/con"
-            app:layout_constraintTop_toBottomOf="@+id/infoLay">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/din_rounded_bold"
-                android:textSize="16sp"
-                android:padding="4dp"
-                android:text="@string/email"
-                android:drawablePadding="4dp"
-                app:drawableLeftCompat="@drawable/ic_email" />
+            android:layout_marginTop="40dp">
 
             <TextView
                 android:id="@+id/email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="johny.ice10@gmail.com"
+                android:layout_marginStart="20dp"
                 android:fontFamily="@font/din_rounded_bold"
-                android:layout_alignParentEnd="true"
-                android:textSize="16sp"
                 android:padding="4dp"
-                tools:ignore="RelativeOverlap" />
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="johny.ice10@gmail.com" />
 
-        </RelativeLayout>
+            <ImageButton
+                android:id="@+id/emailLay"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="20dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_email"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <RelativeLayout
-            android:id="@+id/phoneOneLay"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/list_item_hq_background"
-            android:elevation="4dp"
-            android:orientation="horizontal"
-            android:padding="10dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            app:layout_constraintEnd_toStartOf="@+id/con"
-            app:layout_constraintStart_toEndOf="@+id/con"
-            app:layout_constraintTop_toBottomOf="@+id/emailLay">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/din_rounded_bold"
-                android:textSize="16sp"
-                android:padding="4dp"
-                android:text="@string/phone"/>
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/phoneOne"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
+                android:layout_marginStart="20dp"
                 android:fontFamily="@font/din_rounded_bold"
                 android:padding="4dp"
                 android:textSize="16sp"
-                tools:ignore="RelativeOverlap"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:text="01767535372" />
 
-        </RelativeLayout>
+            <ImageButton
+                android:id="@+id/phoneOneLay"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="20dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_baseline_phone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <RelativeLayout
-            android:id="@+id/phoneTwoLay"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/list_item_hq_background"
-            android:elevation="4dp"
-            android:orientation="horizontal"
-            android:padding="10dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:foreground="?android:attr/selectableItemBackground"
-            app:layout_constraintEnd_toStartOf="@+id/con"
-            app:layout_constraintStart_toEndOf="@+id/con"
-            app:layout_constraintTop_toBottomOf="@+id/phoneOneLay">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/din_rounded_bold"
-                android:textSize="16sp"
-                android:padding="4dp"
-                android:text="@string/phone"/>
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/phoneTwo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
+                android:layout_marginStart="20dp"
                 android:fontFamily="@font/din_rounded_bold"
                 android:padding="4dp"
                 android:textSize="16sp"
-                tools:ignore="RelativeOverlap"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:text="01767535372" />
-        </RelativeLayout>
+
+            <ImageButton
+                android:id="@+id/phoneTwoLay"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="20dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_baseline_phone_iphone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
+
 
     <TextView
         android:id="@+id/noDataFound"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
         android:fontFamily="@font/roboto_medium"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:text="No Data Found!"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="No Data Found!" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
