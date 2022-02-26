@@ -11,12 +11,14 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
+
 import com.msfpocketlist.BaseClass;
 import com.msfpocketlist.R;
 import com.msfpocketlist.common.Constant;
@@ -29,14 +31,16 @@ import com.msfpocketlist.remote.ApiInterface;
 import com.msfpocketlist.ui.profile.ProfileActivity;
 import com.vmadalin.easypermissions.EasyPermissions;
 import com.vmadalin.easypermissions.dialogs.SettingsDialog;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class MSFHQFragment extends Fragment implements EasyPermissions.PermissionCallbacks, HQAdapter.OnItemClick, NetworkReceiver.ConnectivityReceiverListener{
+public class MSFHQFragment extends Fragment implements EasyPermissions.PermissionCallbacks, HQAdapter.OnItemClick, NetworkReceiver.ConnectivityReceiverListener {
     FragmentHqBinding binding;
     ApiInterface apiInterface;
     List<EmployeeHq> employeeHqList = new ArrayList<>();
@@ -45,6 +49,7 @@ public class MSFHQFragment extends Fragment implements EasyPermissions.Permissio
     private static final int PERMISSION_CALL_REQUEST_CODE = 1;
     HeadQuarterRepository repository;
     NetworkReceiver receiver;
+
     public MSFHQFragment() {
         // Required empty public constructor
     }
@@ -101,7 +106,7 @@ public class MSFHQFragment extends Fragment implements EasyPermissions.Permissio
 
         } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             binding.hqRec.hideShimmer();
         }
 
@@ -161,8 +166,12 @@ public class MSFHQFragment extends Fragment implements EasyPermissions.Permissio
             public boolean onQueryTextChange(String newText) {
                 List<EmployeeHq> filteredList = new ArrayList<>();
                 for (EmployeeHq data : employeeHqList) {
-                    if (data.desgTitle.toLowerCase().contains(newText.toString()) || data.mobileNo1.contains(newText.toString())) {
-                        filteredList.add(data);
+                    try {
+                        if ((data.desgTitle.toLowerCase().contains(newText.toString()) || data.mobileNo1.contains(newText.toString())) || ((data.emailId.contains(newText.toString()) || data.mobileNo2.contains(newText.toString())))) {
+                            filteredList.add(data);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                     hqAdapter.searchList(filteredList);
                 }
@@ -207,13 +216,13 @@ public class MSFHQFragment extends Fragment implements EasyPermissions.Permissio
     //permission related function ends here
 
 
-
     //item on click event listener
 
     @Override
     public void onHqItemClick(EmployeeHq employeeHq) {
         startActivity(new Intent(requireActivity(), ProfileActivity.class).putExtra("userId", employeeHq.id));
     }
+
     @Override
     public void onOfflineCall(EmployeeHq employeeHq) {
         if (hasCallPermission()) {
@@ -244,14 +253,23 @@ public class MSFHQFragment extends Fragment implements EasyPermissions.Permissio
         }
     }
 
+    @Override
+    public void onMsgOne(EmployeeHq employeeHq) {
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", employeeHq.mobileNo1, null)));
+    }
+
+    @Override
+    public void onMsgTwo(EmployeeHq employeeHq) {
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", employeeHq.mobileNo2, null)));
+    }
 
 
     @Override
     public void onNetworkConnectionChanged(boolean isConnected) {
-        if (isConnected){
+        if (isConnected) {
             binding.con.getRoot().setVisibility(View.GONE);
             getEmployeeHqList();
-        }else{
+        } else {
             getCacheData();
             binding.con.getRoot().setVisibility(View.VISIBLE);
         }
@@ -261,7 +279,7 @@ public class MSFHQFragment extends Fragment implements EasyPermissions.Permissio
     @Override
     public void onResume() {
         super.onResume();
-        requireContext().registerReceiver(receiver,BaseClass.intentFilter);
+        requireContext().registerReceiver(receiver, BaseClass.intentFilter);
     }
 
     @Override

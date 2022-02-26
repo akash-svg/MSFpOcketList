@@ -7,6 +7,7 @@
         <entry key="app/src/main/res/drawable/bg_shimmer_mission.xml" value="0.286" />
         <entry key="app/src/main/res/drawable/ic_baseline_phone.xml" value="0.286" />
         <entry key="app/src/main/res/drawable/ic_baseline_phone_iphone.xml" value="0.286" />
+        <entry key="app/src/main/res/drawable/ic_message.xml" value="0.301" />
         <entry key="app/src/main/res/drawable/ic_mobile.xml" value="0.286" />
         <entry key="app/src/main/res/drawable/ic_msf.xml" value="0.286" />
         <entry key="app/src/main/res/drawable/ic_phone.xml" value="0.286" />
@@ -32,6 +33,7 @@
         <entry key="app/src/main/res/layout/list_hq_items_shimmer.xml" value="0.35572916666666665" />
         <entry key="app/src/main/res/layout/list_mission_layout.xml" value="0.35572916666666665" />
         <entry key="app/src/main/res/layout/list_mission_shimmer.xml" value="0.35572916666666665" />
+        <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.35572916666666665" />
       </map>
     </option>
   </component>

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">MSF PocketList</string>
     <string name="msf_pocket_list">MSF Pocket List</string>
@@ -29,5 +30,4 @@
     <string name="phone">Phone</string>
     <string name="all_employee">All Employee Data</string>
     <string name="logout">Logout</string>
-    <!-- TODO: Remove or change this placeholder text -->
 </resources>

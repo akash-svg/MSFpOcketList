@@ -40,13 +40,38 @@ public class HQAdapter extends RecyclerView.Adapter<HQAdapter.ViewHolder> {
 
         holder.deptName.setText(dataset.deptTitle);
         holder.designation.setText(dataset.desgTitle);
-        holder.deptContact.setText(dataset.mobileNo1);
         holder.deptContactOne.setText(dataset.mobileNo2);
         holder.deptEmail.setText(dataset.emailId);
+
+        if (dataset.mobileNo1==null){
+            holder.deptContact.setVisibility(View.GONE);
+            holder.offlineCall.setVisibility(View.GONE);
+            holder.msgOne.setVisibility(View.GONE);
+
+        }else{
+            holder.deptContact.setVisibility(View.VISIBLE);
+            holder.offlineCall.setVisibility(View.VISIBLE);
+            holder.msgOne.setVisibility(View.VISIBLE);
+            holder.deptContact.setText(dataset.mobileNo1);
+        }
+
+        if (dataset.mobileNo2==null){
+            holder.deptContactOne.setVisibility(View.GONE);
+            holder.onLineCall.setVisibility(View.GONE);
+            holder.msgTwo.setVisibility(View.GONE);
+        }else{
+            holder.deptContactOne.setVisibility(View.VISIBLE);
+            holder.onLineCall.setVisibility(View.VISIBLE);
+            holder.msgTwo.setVisibility(View.VISIBLE);
+            holder.deptContactOne.setText(dataset.mobileNo2);
+        }
+
 
         holder.cardView.setOnClickListener(v->{onItemClick.onHqItemClick(dataset);});
         holder.offlineCall.setOnClickListener(v->{onItemClick.onOfflineCall(dataset);});
         holder.onLineCall.setOnClickListener(v->{onItemClick.onOnlineCall(dataset);});
+        holder.msgOne.setOnClickListener(v->{onItemClick.onMsgOne(dataset);});
+        holder.msgTwo.setOnClickListener(v->{onItemClick.onMsgTwo(dataset);});
 
     }
 
@@ -64,7 +89,7 @@ public class HQAdapter extends RecyclerView.Adapter<HQAdapter.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView deptName, designation, deptContact,deptEmail,deptContactOne;
         CardView cardView;
-        ImageButton offlineCall,onLineCall;
+        ImageButton offlineCall,onLineCall,msgOne,msgTwo;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -76,6 +101,8 @@ public class HQAdapter extends RecyclerView.Adapter<HQAdapter.ViewHolder> {
             cardView = itemView.findViewById(R.id.cardView);
             offlineCall = itemView.findViewById(R.id.directCall);
             onLineCall = itemView.findViewById(R.id.onlineCalling);
+            msgOne = itemView.findViewById(R.id.messageOne);
+            msgTwo = itemView.findViewById(R.id.messengeTwo);
         }
     }
 
@@ -83,5 +110,7 @@ public class HQAdapter extends RecyclerView.Adapter<HQAdapter.ViewHolder> {
         void onHqItemClick(EmployeeHq employeeHq);
         void onOfflineCall(EmployeeHq employeeHq);
         void onOnlineCall(EmployeeHq employeeHq);
+        void onMsgOne(EmployeeHq employeeHq);
+        void onMsgTwo(EmployeeHq employeeHq);
     }
 }

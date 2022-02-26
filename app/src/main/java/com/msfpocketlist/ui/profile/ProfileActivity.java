@@ -3,6 +3,8 @@ package com.msfpocketlist.ui.profile;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -23,6 +25,7 @@ import com.msfpocketlist.R;
 import com.msfpocketlist.common.Constant;
 import com.msfpocketlist.data.EmployeeAll;
 import com.msfpocketlist.data.UserInfo;
+import com.msfpocketlist.databinding.ActivityProfileBinding;
 import com.msfpocketlist.network.NetworkReceiver;
 import com.msfpocketlist.remote.ApiClient;
 import com.msfpocketlist.remote.ApiInterface;
@@ -40,21 +43,19 @@ import retrofit2.Response;
 
 
 public class ProfileActivity extends AppCompatActivity implements NetworkReceiver.ConnectivityReceiverListener, EasyPermissions.PermissionCallbacks {
+    ActivityProfileBinding binding;
     int userId, missionId, pocketId;
     ApiInterface apiInterface;
     ProfileRepository repository;
     NetworkReceiver receiver;
     private static final int PERMISSION_CALL_REQUEST_CODE = 1;
-    LinearLayout infoLay;
-    CircleImageView profileImg;
-    TextView userName, designation, mission, email, phoneOne, phoneTwo, noDataFound;
-    ImageView phoneTwoLay, phoneOneLay, emailLay;
-    View con;
-
+    private ClipboardManager myClipboard;
+    private ClipData myClip;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        binding = ActivityProfileBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         //header
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle("Profile");
@@ -68,40 +69,29 @@ public class ProfileActivity extends AppCompatActivity implements NetworkReceive
             pocketId = getIntent().getIntExtra("pocketId", -3);
         }
 
-        //init views
-        infoLay = findViewById(R.id.infoLay);
-        profileImg = findViewById(R.id.profileImg);
-        userName = findViewById(R.id.userName);
-        designation = findViewById(R.id.designation);
-        mission = findViewById(R.id.mission);
-        email = findViewById(R.id.email);
-        phoneOne = findViewById(R.id.phoneOne);
-        phoneTwo = findViewById(R.id.phoneTwo);
-        noDataFound = findViewById(R.id.noDataFound);
-        phoneOneLay = findViewById(R.id.phoneOneLay);
-        phoneTwoLay = findViewById(R.id.phoneTwoLay);
-        emailLay = findViewById(R.id.emailLay);
-        con = findViewById(R.id.con);
 
         //retrofit
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
         repository = new ProfileRepository(getApplication());
+        myClipboard = (ClipboardManager)getSystemService(CLIPBOARD_SERVICE);
 
         //network
         receiver = new NetworkReceiver();
         BaseClass.getInstance().setConnectivityListener(this);
 
-        emailLay.setOnClickListener(v -> {
+
+        //event listener
+        binding.emailBtn.setOnClickListener(v -> {
             Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
-            emailIntent.setData(Uri.parse("mailto:" + email.getText().toString()));
+            emailIntent.setData(Uri.parse("mailto:" + binding.email.getText().toString()));
             startActivity(Intent.createChooser(emailIntent, "Send feedback"));
         });
 
-        phoneOneLay.setOnClickListener(v -> {
+        binding.phoneOneBtn.setOnClickListener(v -> {
             if (hasCallPermission()) {
                 try {
                     Intent intent = new Intent(Intent.ACTION_CALL);
-                    intent.setData(Uri.parse("tel:" + phoneOne.getText().toString()));
+                    intent.setData(Uri.parse("tel:" + binding.phoneOne.getText().toString()));
                     startActivity(intent);
                 } catch (Exception e) {
                     Toast.makeText(this, "Error in your phone call" + e.getMessage(), Toast.LENGTH_LONG).show();
@@ -112,11 +102,11 @@ public class ProfileActivity extends AppCompatActivity implements NetworkReceive
         });
 
 
-        phoneTwoLay.setOnClickListener(v -> {
+        binding.phonrTwoBtn.setOnClickListener(v -> {
             if (hasCallPermission()) {
                 try {
                     Intent intent = new Intent(Intent.ACTION_CALL);
-                    intent.setData(Uri.parse("tel:" + phoneTwo.getText().toString()));
+                    intent.setData(Uri.parse("tel:" + binding.phoneTwo.getText().toString()));
                     startActivity(intent);
                 } catch (Exception e) {
                     Toast.makeText(this, "Error in your phone call" + e.getMessage(), Toast.LENGTH_LONG).show();
@@ -124,6 +114,40 @@ public class ProfileActivity extends AppCompatActivity implements NetworkReceive
             } else {
                 requestCallPermission();
             }
+        });
+
+
+
+        binding.phoneOneMsg.setOnClickListener(v->{
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", binding.phoneOne.getText().toString(), null)));
+        });
+
+        binding.phoneTwoMsg.setOnClickListener(v->{
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", binding.phoneTwo.getText().toString(), null)));
+        });
+
+
+
+        //on long press event listener
+        binding.emailLay.setOnLongClickListener(v -> {
+            myClip = ClipData.newPlainText("text", binding.email.getText().toString());
+            myClipboard.setPrimaryClip(myClip);
+            Toast.makeText(getApplicationContext(), "Copied", Toast.LENGTH_SHORT).show();
+            return false;
+        });
+
+        binding.phoneLayOne.setOnLongClickListener(v -> {
+            myClip = ClipData.newPlainText("text", binding.phoneOne.getText().toString());
+            myClipboard.setPrimaryClip(myClip);
+            Toast.makeText(getApplicationContext(), "Copied", Toast.LENGTH_SHORT).show();
+            return false;
+        });
+
+        binding.phoneTwoLay.setOnLongClickListener(v -> {
+            myClip = ClipData.newPlainText("text", binding.phoneTwo.getText().toString());
+            myClipboard.setPrimaryClip(myClip);
+            Toast.makeText(getApplicationContext(), "Copied", Toast.LENGTH_SHORT).show();
+            return false;
         });
     }
 
@@ -131,12 +155,13 @@ public class ProfileActivity extends AppCompatActivity implements NetworkReceive
         try {
             EmployeeAll localData = repository.getAllPocket(userId);
             if (localData != null) {
-                noDataFound.setVisibility(View.GONE);
+                binding.infoLay.setVisibility(View.VISIBLE);
+                binding.noDataFound.setVisibility(View.GONE);
                 setUserDataLocal(localData);
             } else {
-                infoLay.setVisibility(View.GONE);
-                noDataFound.setVisibility(View.VISIBLE);
-                noDataFound.setText(getString(R.string.no_data_found));
+                binding.infoLay.setVisibility(View.GONE);
+                binding.noDataFound.setVisibility(View.VISIBLE);
+                binding.noDataFound.setText(getString(R.string.no_data_found));
             }
 
         } catch (Exception e) {
@@ -155,7 +180,7 @@ public class ProfileActivity extends AppCompatActivity implements NetworkReceive
                     UserInfo userInfo = response.body();
                     if (userInfo != null) {
                         if (userInfo.response == 200) {
-                            noDataFound.setVisibility(View.GONE);
+                            binding.noDataFound.setVisibility(View.GONE);
                             UserInfo.Profile data = userInfo.profile;
                             setUserData(data);
                         } else {
@@ -171,8 +196,8 @@ public class ProfileActivity extends AppCompatActivity implements NetworkReceive
 
             @Override
             public void onFailure(@NonNull Call<UserInfo> call, @NonNull Throwable t) {
-                noDataFound.setVisibility(View.VISIBLE);
-                noDataFound.setText(getString(R.string.no_data_found));
+                binding.noDataFound.setVisibility(View.VISIBLE);
+                binding.noDataFound.setText(getString(R.string.no_data_found));
             }
         });
     }
@@ -212,31 +237,30 @@ public class ProfileActivity extends AppCompatActivity implements NetworkReceive
         Glide.with(ProfileActivity.this)
                 .load(Constant.IMAGE_PATH + data.avatar)
                 .apply(new RequestOptions().placeholder(R.drawable.ic_user))
-                .into(profileImg);
-        userName.setText(data.fullName);
-        designation.setText(data.designation + ", " + data.department);
-        mission.setText(data.missionTitle);
+                .into(binding.profileImg);
+        binding.userName.setText(data.fullName);
+        binding.designation.setText(data.designation + ", " + data.department);
+        binding.mission.setText(data.missionTitle);
         if (data.emailId == null) {
-            emailLay.setVisibility(View.GONE);
-            email.setVisibility(View.GONE);
+            binding.emailLay.setVisibility(View.GONE);
         } else {
-            email.setText(data.emailId);
+            binding.emailLay.setVisibility(View.VISIBLE);
+            binding.email.setText(data.emailId);
         }
 
         if (data.mobileNo1 == null) {
-            phoneOneLay.setVisibility(View.GONE);
-            phoneOne.setVisibility(View.GONE);
+            binding.phoneLayOne.setVisibility(View.GONE);
         } else {
-            phoneOne.setText(data.mobileNo1);
+            binding.phoneLayOne.setVisibility(View.VISIBLE);
+            binding.phoneOne.setText(data.mobileNo1);
         }
 
         if (data.mobileNo2 == null) {
-            phoneTwoLay.setVisibility(View.GONE);
-            phoneTwo.setVisibility(View.GONE);
+            binding.phoneTwoLay.setVisibility(View.GONE);
         } else {
-            phoneTwo.setText(data.mobileNo2);
+            binding.phoneTwoLay.setVisibility(View.VISIBLE);
+            binding.phoneTwo.setText(data.mobileNo2);
         }
-
     }
 
 
@@ -245,39 +269,39 @@ public class ProfileActivity extends AppCompatActivity implements NetworkReceive
         Glide.with(ProfileActivity.this)
                 .load(Constant.IMAGE_PATH + data.avatar)
                 .apply(new RequestOptions().placeholder(R.drawable.ic_user))
-                .into(profileImg);
-        userName.setText(data.fullName);
-        designation.setText(data.designation + ", " + data.department);
-        mission.setText(data.missionTitle);
+                .into(binding.profileImg);
+        binding.userName.setText(data.fullName);
+        binding.designation.setText(data.designation + ", " + data.department);
+        binding.mission.setText(data.missionTitle);
         if (data.emailId == null) {
-            emailLay.setVisibility(View.GONE);
-            email.setVisibility(View.GONE);
+            binding.emailLay.setVisibility(View.GONE);
         } else {
-            email.setText(data.emailId);
+            binding.emailLay.setVisibility(View.VISIBLE);
+            binding.email.setText(data.emailId);
         }
 
         if (data.mobileNo1 == null) {
-            phoneOneLay.setVisibility(View.GONE);
-            phoneOne.setVisibility(View.GONE);
+            binding.phoneLayOne.setVisibility(View.GONE);
         } else {
-            phoneOne.setText(data.mobileNo1);
+            binding.phoneLayOne.setVisibility(View.VISIBLE);
+            binding.phoneOne.setText(data.mobileNo1);
         }
 
         if (data.mobileNo2 == null) {
-            phoneTwoLay.setVisibility(View.GONE);
-            phoneTwo.setVisibility(View.GONE);
+            binding.phoneTwoLay.setVisibility(View.GONE);
         } else {
-            phoneTwo.setText(data.mobileNo2);
+            binding.phoneTwoLay.setVisibility(View.VISIBLE);
+            binding.phoneTwo.setText(data.mobileNo2);
         }
     }
 
     @Override
     public void onNetworkConnectionChanged(boolean isConnected) {
         if (isConnected) {
-            con.setVisibility(View.GONE);
+            binding.con.getRoot().setVisibility(View.GONE);
             getUserDetail(userId);
         } else {
-            con.setVisibility(View.VISIBLE);
+            binding.con.getRoot().setVisibility(View.VISIBLE);
             getCacheData();
         }
     }

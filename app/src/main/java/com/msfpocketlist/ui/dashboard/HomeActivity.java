@@ -31,7 +31,7 @@ public class HomeActivity extends AppCompatActivity {
         bottomNavView.setBackground(null);
         bottomNavView.getMenu().getItem(2).setEnabled(false);
         if (savedInstanceState==null){
-            replaceFragment(msfhqFragment);
+            replaceFragment(missionFragment);
         }
 
         bottomNavView.setOnItemSelectedListener(item -> {
@@ -80,8 +80,8 @@ public class HomeActivity extends AppCompatActivity {
             AlertDialog alertDialog = alertDialogBuilder.create();
             alertDialog.show();
         }else{
-            replaceFragment(msfhqFragment);
-            bottomNavView.setSelectedItemId(R.id.home);
+            replaceFragment(missionFragment);
+            bottomNavView.setSelectedItemId(R.id.mission);
         }
     }
 
