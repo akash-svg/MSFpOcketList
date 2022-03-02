@@ -177,16 +177,26 @@ public class EmployeeActivity extends AppCompatActivity implements EasyPermissio
                 if (searchType.equals("cache")){
                     List<EmployeeAll> filteredList = new ArrayList<>();
                     for (EmployeeAll data : employeeAlls) {
-                        if (data.designation.toLowerCase().contains(newText.toString()) || data.mobileNo1.contains(newText.toString())) {
-                            filteredList.add(data);
+                        try {
+                            if ((data.designation.toLowerCase().contains(newText.toString()) || data.mobileNo1.contains(newText.toString()))
+                                    || (data.emailId.toLowerCase().contains(newText.toString()) || data.mobileNo2.contains(newText.toString()))) {
+                                filteredList.add(data);
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
                         employeeCacheAdapter.searchList(filteredList);
                     }
                 }else if (searchType.equals("network")){
                     List<Employee> filteredList = new ArrayList<>();
                     for (Employee data : pocketEmList) {
-                        if (data.designation.toLowerCase().contains(newText.toString()) || data.mobileNo1.contains(newText.toString())) {
-                            filteredList.add(data);
+                        try {
+                            if ((data.designation.toLowerCase().contains(newText.toString()) || data.mobileNo1.contains(newText.toString()))
+                                    || (data.emailId.toLowerCase().contains(newText.toString()) || data.mobileNo2.contains(newText.toString()))) {
+                                filteredList.add(data);
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
                         employeeAdapter.searchList(filteredList);
                     }
@@ -281,6 +291,16 @@ public class EmployeeActivity extends AppCompatActivity implements EasyPermissio
         }
     }
 
+    @Override
+    public void onMsgOne(Employee pocketEm) {
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", pocketEm.mobileNo1, null)));
+    }
+
+    @Override
+    public void onMsgTwo(Employee pocketEm) {
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", pocketEm.mobileNo2, null)));
+    }
+
 
     @Override
     public void onBackPressed() {
@@ -348,5 +368,15 @@ public class EmployeeActivity extends AppCompatActivity implements EasyPermissio
         } else {
             requestCallPermission();
         }
+    }
+
+    @Override
+    public void onOnMsgOne(EmployeeAll pocketEm) {
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", pocketEm.mobileNo1, null)));
+    }
+
+    @Override
+    public void onOnMsgTwo(EmployeeAll pocketEm) {
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", pocketEm.mobileNo1, null)));
     }
 }

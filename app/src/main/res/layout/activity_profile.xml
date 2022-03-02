@@ -39,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:fontFamily="@font/din_rounded_bold"
+            android:textColor="?attr/colorOnBackground"
             android:padding="2dp"
             tools:text="User Name" />
 
@@ -47,7 +47,7 @@
             android:id="@+id/designation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/din_rounded_bold"
+            android:textColor="?attr/colorOnBackground"
             android:padding="2dp"
             tools:text="Department Designation" />
 
@@ -55,7 +55,7 @@
             android:id="@+id/mission"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/din_rounded_bold"
+            android:textColor="?attr/colorOnBackground"
             android:padding="2dp"
             tools:text="Mission" />
     </LinearLayout>
@@ -81,7 +81,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_margin="4dp"
-            android:fontFamily="@font/din_rounded_bold"
+            android:textColor="?attr/colorOnBackground"
             android:padding="4dp"
             android:textSize="16sp"
             tools:text="johny.ice10@gmail.com" />
@@ -98,7 +98,7 @@
             android:layout_marginBottom="4dp"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:src="@drawable/ic_email"
-            app:tint="#42A5F5"
+            app:tint="?attr/colorOnBackground"
             tools:ignore="SpeakableTextPresentCheck" />
     </RelativeLayout>
 
@@ -123,7 +123,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_margin="4dp"
-            android:fontFamily="@font/din_rounded_bold"
+            android:textColor="?attr/colorOnBackground"
             android:padding="4dp"
             android:textSize="16sp"
             tools:text="01767535372" />
@@ -134,6 +134,7 @@
             android:layout_height="24dp"
             android:layout_centerVertical="true"
             android:layout_marginEnd="20dp"
+            app:tint="?attr/colorOnBackground"
             android:layout_toStartOf="@id/phoneOneBtn"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:src="@drawable/ic_message"
@@ -146,7 +147,7 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_margin="4dp"
-            app:tint="#42A5F5"
+            app:tint="?attr/colorOnBackground"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:src="@drawable/ic_baseline_phone"
             tools:ignore="SpeakableTextPresentCheck" />
@@ -173,7 +174,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_margin="4dp"
-            android:fontFamily="@font/din_rounded_bold"
+            android:textColor="?attr/colorOnBackground"
             android:padding="4dp"
             android:textSize="16sp"
             tools:text="01767535372" />
@@ -184,6 +185,7 @@
             android:layout_height="24dp"
             android:layout_centerVertical="true"
             android:layout_marginEnd="20dp"
+            app:tint="?attr/colorOnBackground"
             android:layout_toStartOf="@id/phonrTwoBtn"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:src="@drawable/ic_message"
@@ -196,7 +198,7 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_margin="4dp"
-            app:tint="#42A5F5"
+            app:tint="?attr/colorOnBackground"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:src="@drawable/ic_baseline_phone_iphone"
             tools:ignore="SpeakableTextPresentCheck" />
@@ -209,6 +211,7 @@
         android:fontFamily="@font/roboto_medium"
         android:textSize="16sp"
         android:visibility="gone"
+        android:textColor="?attr/colorOnBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

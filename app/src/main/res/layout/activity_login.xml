@@ -9,32 +9,17 @@
 
     <ImageView
         android:id="@+id/rectangle_3"
-        android:layout_width="115dp"
-        android:layout_height="105dp"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="68dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_logo"
+        app:srcCompat="@drawable/ic_brand"
         tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/tex_one"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="30dp"
-        android:fontFamily="@font/roboto_medium"
-        android:gravity="center"
-        android:textColor="@color/black"
-        android:text="@string/msf_pocket_list"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="@+id/rectangle_3"
-        app:layout_constraintStart_toStartOf="@+id/rectangle_3"
-        app:layout_constraintTop_toBottomOf="@+id/rectangle_3" />
 
     <LinearLayout
         android:id="@+id/Linear_one"
@@ -44,17 +29,18 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="30dp"
         android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="@+id/tex_one"
-        app:layout_constraintStart_toStartOf="@+id/tex_one"
-        app:layout_constraintTop_toBottomOf="@id/tex_one"
+        app:layout_constraintEnd_toEndOf="@+id/rectangle_3"
+        app:layout_constraintStart_toStartOf="@+id/rectangle_3"
+        app:layout_constraintTop_toBottomOf="@id/rectangle_3"
         tools:ignore="MissingConstraints">
 
         <EditText
             android:id="@+id/user_email"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:background="@color/white"
-           android:drawableStart="@drawable/ic_baseline_email_24"
+            android:autofillHints="phone"
+            android:background="@drawable/edit_text_bg"
+            android:drawableStart="@drawable/ic_baseline_email_24"
             android:drawablePadding="4dp"
             android:fontFamily="@font/roboto"
             android:hint="@string/enter_your_number"
@@ -62,8 +48,7 @@
             android:inputType="textEmailAddress"
             android:padding="10dp"
             android:textColor="@color/black"
-            android:textCursorDrawable="@drawable/cursor"
-            android:autofillHints="phone" />
+            android:textCursorDrawable="@drawable/cursor" />
 
 
         <EditText
@@ -71,17 +56,18 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="10dp"
-            android:background="@color/white"
+            android:background="@drawable/edit_text_bg"
             android:drawableStart="@drawable/ic_lock"
             android:drawablePadding="4dp"
+            android:drawableTint="#A5A4A4"
             android:fontFamily="@font/roboto"
             android:hint="@string/enter_your_password"
             android:imeOptions="actionNext"
             android:inputType="textPassword"
-            android:padding="10dp"
             android:longClickable="false"
-            android:textCursorDrawable="@drawable/cursor"
+            android:padding="10dp"
             android:textColor="@color/black"
+            android:textCursorDrawable="@drawable/cursor"
             tools:ignore="Autofill" />
 
         <Button
@@ -94,9 +80,7 @@
             android:elevation="0dp"
             android:fontFamily="@font/roboto_medium"
             android:text="@string/login"
-            android:textColor="@color/white"
-
-            />
+            android:textColor="@color/white" />
 
     </LinearLayout>
 

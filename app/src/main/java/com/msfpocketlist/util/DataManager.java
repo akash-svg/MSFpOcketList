@@ -12,12 +12,17 @@ import android.os.Build;
 import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 import com.google.gson.Gson;
 import com.msfpocketlist.R;
 import com.msfpocketlist.common.Constant;
 import com.msfpocketlist.data.UserInfo;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class DataManager {
     private static final DataManager ourInstance = new DataManager();
@@ -63,8 +68,14 @@ public class DataManager {
     }
 
     public UserInfo getUserData(Context context) {
-        UserInfo userInfo = new Gson().fromJson(SessionManager.readString(context, Constant.USER_INFO, ""), UserInfo.class);
-        return userInfo;
+        return new Gson().fromJson(SessionManager.readString(context, Constant.USER_INFO, ""), UserInfo.class);
+    }
+
+    //current date
+    public String currentDate(){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+        Date date = new Date();
+        return simpleDateFormat.format(date).toString();
     }
 
     //get real image path

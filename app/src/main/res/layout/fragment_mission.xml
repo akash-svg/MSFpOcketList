@@ -5,6 +5,7 @@
     android:id="@+id/missionLay"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/flash_white"
     tools:context=".ui.dashboard.mission.MissionFragment">
 
     <include
@@ -35,6 +36,7 @@
         android:fontFamily="@font/roboto_medium"
         android:textSize="16sp"
         android:visibility="gone"
+        android:textColor="?attr/colorOnBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

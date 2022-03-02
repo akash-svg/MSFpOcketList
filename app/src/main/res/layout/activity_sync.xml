@@ -4,34 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray"
+    android:background="@color/flash_white"
     tools:context=".ui.sync.SyncActivity">
 
     <include
         android:id="@+id/conLay"
         layout="@layout/connection_layout"
         android:visibility="gone"
-        tools:visibility="visible"/>
+        tools:visibility="visible" />
 
     <RelativeLayout
         android:id="@+id/missionLay"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:layout_marginTop="5dp"
         android:background="@color/white"
         android:elevation="2dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="5dp"
         app:layout_constraintTop_toBottomOf="@id/conLay">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:fontFamily="@font/din_rounded_bold"
             android:padding="10dp"
             android:text="@string/mission_data"
+            android:textColor="?attr/colorOnBackground"
             android:textSize="16sp" />
 
         <Button
@@ -41,7 +41,7 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="10dp"
-            android:fontFamily="@font/din_rounded_bold"
+
             android:text="@string/sync"
             android:textAllCaps="false" />
     </RelativeLayout>
@@ -62,9 +62,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:fontFamily="@font/din_rounded_bold"
             android:padding="10dp"
             android:text="@string/employee_data"
+            android:textColor="?attr/colorOnBackground"
             android:textSize="16sp" />
 
         <Button
@@ -74,7 +74,7 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="10dp"
-            android:fontFamily="@font/din_rounded_bold"
+
             android:text="@string/sync"
             android:textAllCaps="false" />
     </RelativeLayout>
@@ -95,9 +95,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:fontFamily="@font/din_rounded_bold"
             android:padding="10dp"
             android:text="@string/pocket_data"
+            android:textColor="?attr/colorOnBackground"
             android:textSize="16sp" />
 
         <Button
@@ -107,7 +107,7 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="10dp"
-            android:fontFamily="@font/din_rounded_bold"
+
             android:text="@string/sync"
             android:textAllCaps="false" />
     </RelativeLayout>
@@ -128,9 +128,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:fontFamily="@font/din_rounded_bold"
             android:padding="10dp"
             android:text="@string/emergency_data"
+            android:textColor="?attr/colorOnBackground"
             android:textSize="16sp" />
 
         <Button
@@ -140,7 +140,6 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="10dp"
-            android:fontFamily="@font/din_rounded_bold"
             android:text="@string/sync"
             android:textAllCaps="false" />
     </RelativeLayout>
@@ -160,9 +159,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:fontFamily="@font/din_rounded_bold"
             android:padding="10dp"
             android:text="@string/all_employee"
+            android:textColor="?attr/colorOnBackground"
             android:textSize="16sp" />
 
         <Button
@@ -172,7 +171,7 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="10dp"
-            android:fontFamily="@font/din_rounded_bold"
+
             android:text="@string/sync"
             android:textAllCaps="false" />
     </RelativeLayout>

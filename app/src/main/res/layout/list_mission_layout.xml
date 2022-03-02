@@ -11,7 +11,6 @@
     android:elevation="4dp"
     android:focusable="true"
     android:foreground="?android:attr/selectableItemBackground"
-    app:cardBackgroundColor="#FFFFFF"
     app:cardCornerRadius="5dp">
 
     <RelativeLayout
@@ -24,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:fontFamily="@font/din_rounded_bold"
+            android:textColor="?attr/colorOnBackground"
             android:textSize="16sp"
             tools:ignore="RelativeOverlap"
             tools:text="Blood Name" />
@@ -35,7 +34,7 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:src="@drawable/ic_right"
-            app:tint="@color/black"
+            app:tint="?attr/colorOnBackground"
             tools:ignore="ContentDescription" />
     </RelativeLayout>
 

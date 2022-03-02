@@ -40,7 +40,6 @@ public class HQAdapter extends RecyclerView.Adapter<HQAdapter.ViewHolder> {
 
         holder.deptName.setText(dataset.deptTitle);
         holder.designation.setText(dataset.desgTitle);
-        holder.deptContactOne.setText(dataset.mobileNo2);
         holder.deptEmail.setText(dataset.emailId);
 
         if (dataset.mobileNo1==null){

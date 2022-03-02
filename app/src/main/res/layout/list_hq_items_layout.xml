@@ -36,8 +36,7 @@
                 android:id="@+id/designation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/din_rounded_bold"
-                android:padding="2dp"
+                android:textColor="?attr/colorOnBackground"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 tools:text="@string/designation" />
@@ -46,28 +45,28 @@
                 android:id="@+id/deptContact"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/din_rounded_bold"
+                android:textColor="?attr/colorOnBackground"
                 tools:text="@string/number" />
 
             <TextView
                 android:id="@+id/deptContactOne"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/din_rounded_bold"
+                android:textColor="?attr/colorOnBackground"
                 tools:text="@string/number" />
 
             <TextView
                 android:id="@+id/dept_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/din_rounded_bold"
+                android:textColor="?attr/colorOnBackground"
                 tools:text="@string/email" />
 
             <TextView
                 android:id="@+id/deptName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/din_rounded_bold"
+                android:textColor="?attr/colorOnBackground"
                 tools:text="@string/department_name" />
 
         </LinearLayout>
@@ -97,7 +96,7 @@
                     android:contentDescription="@string/phone_calling"
                     android:focusable="true"
                     android:src="@drawable/ic_baseline_phone"
-                    app:tint="#42A5F5" />
+                    app:tint="?attr/colorOnBackground" />
 
                 <ImageButton
                     android:id="@+id/onlineCalling"
@@ -109,7 +108,7 @@
                     android:focusable="true"
                     android:padding="4dp"
                     android:src="@drawable/ic_baseline_phone_iphone"
-                    app:tint="#42A5F5" />
+                    app:tint="?attr/colorOnBackground" />
             </LinearLayout>
 
             <LinearLayout
@@ -127,6 +126,7 @@
                     android:clickable="true"
                     android:contentDescription="@string/phone_calling"
                     android:focusable="true"
+                    app:tint="?attr/colorOnBackground"
                     android:src="@drawable/ic_message" />
 
                 <ImageButton
@@ -138,6 +138,7 @@
                     android:contentDescription="@string/online_calling"
                     android:focusable="true"
                     android:padding="4dp"
+                    app:tint="?attr/colorOnBackground"
                     android:src="@drawable/ic_message" />
             </LinearLayout>
         </LinearLayout>

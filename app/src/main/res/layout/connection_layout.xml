@@ -20,7 +20,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:fontFamily="@font/din_rounded_bold"
             android:padding="5dp"
             android:textColor="@color/white"
             android:text="@string/no_internet_connection" />

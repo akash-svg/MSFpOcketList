@@ -159,8 +159,13 @@ public class EmergencyFragment extends Fragment implements EasyPermissions.Permi
             public boolean onQueryTextChange(String newText) {
                 List<EmployeeEm> filteredList = new ArrayList<>();
                 for (EmployeeEm data : employeeEmList) {
-                    if (data.desgTitle.toLowerCase().contains(newText.toString()) || data.mobileNo1.contains(newText.toString())) {
-                        filteredList.add(data);
+                    try {
+                        if ((data.desgTitle.toLowerCase().contains(newText.toString()) || data.mobileNo1.contains(newText.toString()))
+                        || (data.emailId.toLowerCase().contains(newText.toString()) || data.mobileNo2.contains(newText.toString()))) {
+                            filteredList.add(data);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                     emergencyAdapter.searchList(filteredList);
                 }
@@ -236,6 +241,16 @@ public class EmergencyFragment extends Fragment implements EasyPermissions.Permi
         } else {
             requestCallPermission();
         }
+    }
+
+    @Override
+    public void onMsgOne(EmployeeEm employeeEm) {
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", employeeEm.mobileNo1, null)));
+    }
+
+    @Override
+    public void onMsgTwo(EmployeeEm employeeEm) {
+        startActivity(new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", employeeEm.mobileNo2, null)));
     }
 
     //

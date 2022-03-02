@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">MSF PocketList</string>
+    <string name="app_name">MSF KM PocketList</string>
     <string name="msf_pocket_list">MSF Pocket List</string>
     <string name="enter_your_password">Enter your Password</string>
-    <string name="enter_your_number">Enter your Number</string>
+    <string name="enter_your_number">Enter your Email</string>
     <string name="department_name">Department</string>
     <string name="designation">Designation</string>
     <string name="number">+8801767535345</string>
@@ -30,4 +30,8 @@
     <string name="phone">Phone</string>
     <string name="all_employee">All Employee Data</string>
     <string name="logout">Logout</string>
+    <string name="data_sync_service_name">Data Sync Service</string>
+    <string name="complete_data_backup_service_notification_channel_desc">Service to Sync data</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
 </resources>

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/flash_white"
     tools:context=".ui.pocket.PocketActivity">
 
     <androidx.cardview.widget.CardView
@@ -49,6 +50,7 @@
         android:visibility="gone"
         android:fontFamily="@font/roboto_medium"
         android:textSize="16sp"
+        android:textColor="?attr/colorOnBackground"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

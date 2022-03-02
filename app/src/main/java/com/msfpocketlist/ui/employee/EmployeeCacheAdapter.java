@@ -39,9 +39,29 @@ public class EmployeeCacheAdapter extends RecyclerView.Adapter<EmployeeCacheAdap
 
         holder.deptName.setText(dataset.department);
         holder.designation.setText(dataset.designation);
-        holder.deptContact.setText(dataset.mobileNo1);
-        holder.deptContactOne.setText(dataset.mobileNo2);
         holder.deptEmail.setText(dataset.emailId);
+        if (dataset.mobileNo1==null){
+            holder.deptContact.setVisibility(View.GONE);
+            holder.offlineCall.setVisibility(View.GONE);
+            holder.msgOne.setVisibility(View.GONE);
+
+        }else{
+            holder.deptContact.setVisibility(View.VISIBLE);
+            holder.offlineCall.setVisibility(View.VISIBLE);
+            holder.msgOne.setVisibility(View.VISIBLE);
+            holder.deptContact.setText(dataset.mobileNo1);
+        }
+
+        if (dataset.mobileNo2==null){
+            holder.deptContactOne.setVisibility(View.GONE);
+            holder.onLineCall.setVisibility(View.GONE);
+            holder.msgTwo.setVisibility(View.GONE);
+        }else{
+            holder.deptContactOne.setVisibility(View.VISIBLE);
+            holder.onLineCall.setVisibility(View.VISIBLE);
+            holder.msgTwo.setVisibility(View.VISIBLE);
+            holder.deptContactOne.setText(dataset.mobileNo2);
+        }
 
         holder.cardView.setOnClickListener(v->{onItemClick.onHqItemClickOne(dataset);});
         holder.offlineCall.setOnClickListener(v->{onItemClick.onOfflineCallOne(dataset);});
@@ -62,7 +82,7 @@ public class EmployeeCacheAdapter extends RecyclerView.Adapter<EmployeeCacheAdap
     public static class  ViewHolder extends RecyclerView.ViewHolder {
         TextView deptName, designation, deptContact,deptEmail,deptContactOne;
         CardView cardView;
-        ImageButton offlineCall,onLineCall;
+        ImageButton offlineCall,onLineCall,msgOne,msgTwo;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             deptName = itemView.findViewById(R.id.deptName);
@@ -73,6 +93,8 @@ public class EmployeeCacheAdapter extends RecyclerView.Adapter<EmployeeCacheAdap
             cardView = itemView.findViewById(R.id.cardView);
             offlineCall = itemView.findViewById(R.id.directCall);
             onLineCall = itemView.findViewById(R.id.onlineCalling);
+            msgOne = itemView.findViewById(R.id.messageOne);
+            msgTwo = itemView.findViewById(R.id.messengeTwo);
         }
     }
 
@@ -80,5 +102,7 @@ public class EmployeeCacheAdapter extends RecyclerView.Adapter<EmployeeCacheAdap
         void onHqItemClickOne(EmployeeAll pocketEm);
         void onOfflineCallOne(EmployeeAll pocketEm);
         void onOnlineCallOne(EmployeeAll pocketEm);
+        void onOnMsgOne(EmployeeAll pocketEm);
+        void onOnMsgTwo(EmployeeAll pocketEm);
     }
 }
