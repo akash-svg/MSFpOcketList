@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -84,6 +85,13 @@ public class MSFHQFragment extends Fragment implements EasyPermissions.Permissio
         //network
         receiver = new NetworkReceiver();
         BaseClass.getInstance().setConnectivityListener(this);
+
+        //call function
+        if (NetworkReceiver.isConnected()) {
+            getEmployeeHqList();
+        } else {
+            getCacheData();
+        }
 
 
         return view;

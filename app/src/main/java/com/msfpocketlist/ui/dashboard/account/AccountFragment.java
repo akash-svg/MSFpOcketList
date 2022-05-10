@@ -132,12 +132,42 @@ public class AccountFragment extends Fragment implements EasyPermissions.Permiss
                 .load(Constant.IMAGE_PATH+profileData.avatar)
                 .apply(new RequestOptions().placeholder(R.drawable.ic_user))
                 .into(userImg);
-        userName.setText(profileData.fullName);
-        userDesignation.setText(profileData.designation);
-        userPhone.setText(profileData.mobileNo1);
-        userPhoneOne.setText(profileData.mobileNo2);
-        userEmail.setText(profileData.emailId);
-        userAddress.setText(profileData.missionTitle);
+        if ((profileData.fullName.equalsIgnoreCase("null")||profileData.fullName.equalsIgnoreCase("-"))){
+            userName.setText("Not Available");
+        }else{
+            userName.setText(profileData.mobileNo2);
+        }
+
+        if ((profileData.designation.equalsIgnoreCase("null")||profileData.designation.equalsIgnoreCase("-"))){
+            userDesignation.setText("Not Available");
+        }else{
+            userDesignation.setText(profileData.mobileNo2);
+        }
+
+        if ((profileData.mobileNo1.equalsIgnoreCase("null")||profileData.mobileNo1.equalsIgnoreCase("-"))){
+            userPhone.setText("Not Available");
+        }else{
+            userPhone.setText(profileData.mobileNo1);
+        }
+
+
+        if ((profileData.mobileNo2.equalsIgnoreCase("null")||profileData.mobileNo2.equalsIgnoreCase("-"))){
+            userPhoneOne.setText("Not Available");
+        }else{
+            userPhoneOne.setText(profileData.mobileNo2);
+        }
+
+        if (!(profileData.emailId.equalsIgnoreCase("null")||profileData.emailId.equalsIgnoreCase("-"))){
+            userEmail.setText(profileData.emailId);
+        }else{
+            userEmail.setText("Not Available");
+        }
+
+        if (!(profileData.missionTitle.equalsIgnoreCase("null")||profileData.missionTitle.equalsIgnoreCase("-"))){
+            userAddress.setText(profileData.missionTitle);
+        }else{
+            userAddress.setText("Not Available");
+        }
         appVersion.setText("Version "+BuildConfig.VERSION_NAME);
     }
 

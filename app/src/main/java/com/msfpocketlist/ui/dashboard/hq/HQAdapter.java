@@ -40,9 +40,9 @@ public class HQAdapter extends RecyclerView.Adapter<HQAdapter.ViewHolder> {
 
         holder.deptName.setText(dataset.deptTitle);
         holder.designation.setText(dataset.desgTitle);
-        holder.deptEmail.setText(dataset.emailId);
 
-        if (dataset.mobileNo1==null){
+
+        if (dataset.mobileNo1.equalsIgnoreCase("null") || dataset.mobileNo1.equalsIgnoreCase("-")){
             holder.deptContact.setVisibility(View.GONE);
             holder.offlineCall.setVisibility(View.GONE);
             holder.msgOne.setVisibility(View.GONE);
@@ -54,7 +54,7 @@ public class HQAdapter extends RecyclerView.Adapter<HQAdapter.ViewHolder> {
             holder.deptContact.setText(dataset.mobileNo1);
         }
 
-        if (dataset.mobileNo2==null){
+        if (dataset.mobileNo2.equalsIgnoreCase("null") || dataset.mobileNo2.equalsIgnoreCase("-")){
             holder.deptContactOne.setVisibility(View.GONE);
             holder.onLineCall.setVisibility(View.GONE);
             holder.msgTwo.setVisibility(View.GONE);
@@ -63,6 +63,10 @@ public class HQAdapter extends RecyclerView.Adapter<HQAdapter.ViewHolder> {
             holder.onLineCall.setVisibility(View.VISIBLE);
             holder.msgTwo.setVisibility(View.VISIBLE);
             holder.deptContactOne.setText(dataset.mobileNo2);
+        }
+
+        if (!(dataset.emailId.equalsIgnoreCase("null")||dataset.emailId.equalsIgnoreCase("-"))){
+            holder.deptEmail.setText(dataset.emailId);
         }
 
 

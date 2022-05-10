@@ -66,7 +66,6 @@ public class HomeActivity extends AppCompatActivity {
 
         fab.setOnClickListener(v -> {
             startActivity(new Intent(this, SyncActivity.class));
-            overridePendingTransition(R.anim.bottom_to_top, R.anim.top_to_bottom);
         });
 
 

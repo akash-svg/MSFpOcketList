@@ -25,20 +25,20 @@ public interface ApiInterface {
 
     //login
     @FormUrlEncoded
-    @POST("user-management/employee/login")
+    @POST("user-management/employees/login")
     Call<UserInfo> userLogin(@Header("Authorization") String auth, @Field("email_id") String emailId, @Field("password") String password, @Field("device_token") String deviceToken);
 
     //profile update
     @Multipart
-    @POST("user-management/employee/profile/{userId}/update")
+    @POST("user-management/employees/profile/{userId}/avatar")
     Call<UserInfo> updateProfile(@Header("Authorization") String auth,@Path(value = "userId",encoded = true) int userId,@Part MultipartBody.Part file);
 
     //get head quarter employee list
-    @GET("user-management/employee/headquarters")
+    @GET("user-management/employees/headquarters")
     Call<HqModel> getHeadquarterList(@Header("Authorization") String auth);
 
     //get emergency employee list
-    @GET("user-management/employee/emergencies")
+    @GET("user-management/employees/emergencies")
     Call<EmergencyModel> getEmergencyList(@Header("Authorization") String auth);
 
     //get mission list
@@ -54,7 +54,7 @@ public interface ApiInterface {
     Call<PocketEmModel> getEmployeeOnPocket(@Header("Authorization") String auth,@Path("projectId") int pocketId);
 
     //get employee detail by id
-    @GET("user-management/employee/profile/{userId}")
+    @GET("user-management/employees/profile/{userId}")
     Call<UserInfo> getDetailById(@Header("Authorization") String auth,@Path("userId") int userId);
 
     //get all active projects

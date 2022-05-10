@@ -82,9 +82,14 @@ public class ProfileActivity extends AppCompatActivity implements NetworkReceive
 
         //event listener
         binding.emailBtn.setOnClickListener(v -> {
-            Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
-            emailIntent.setData(Uri.parse("mailto:" + binding.email.getText().toString()));
-            startActivity(Intent.createChooser(emailIntent, "Send feedback"));
+            if (binding.email.getText().toString().equals("-") || binding.email.getText().toString().equals("null")){
+                Toast.makeText(this,"Email id id not valid.",Toast.LENGTH_SHORT).show();
+            }else{
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+                emailIntent.setData(Uri.parse("mailto:" + binding.email.getText().toString()));
+                startActivity(Intent.createChooser(emailIntent, "Send feedback"));
+            }
+
         });
 
         binding.phoneOneBtn.setOnClickListener(v -> {
@@ -241,21 +246,21 @@ public class ProfileActivity extends AppCompatActivity implements NetworkReceive
         binding.userName.setText(data.fullName);
         binding.designation.setText(data.designation + ", " + data.department);
         binding.mission.setText(data.missionTitle);
-        if (data.emailId == null) {
+        if (data.emailId.equalsIgnoreCase("null") || data.emailId.equalsIgnoreCase("-")) {
             binding.emailLay.setVisibility(View.GONE);
         } else {
             binding.emailLay.setVisibility(View.VISIBLE);
             binding.email.setText(data.emailId);
         }
 
-        if (data.mobileNo1 == null) {
+        if (data.mobileNo1.equalsIgnoreCase("null") || data.mobileNo1.equalsIgnoreCase("-")) {
             binding.phoneLayOne.setVisibility(View.GONE);
         } else {
             binding.phoneLayOne.setVisibility(View.VISIBLE);
             binding.phoneOne.setText(data.mobileNo1);
         }
 
-        if (data.mobileNo2 == null) {
+        if (data.mobileNo2.equalsIgnoreCase("null") || data.mobileNo2.equalsIgnoreCase("-")) {
             binding.phoneTwoLay.setVisibility(View.GONE);
         } else {
             binding.phoneTwoLay.setVisibility(View.VISIBLE);
@@ -273,21 +278,21 @@ public class ProfileActivity extends AppCompatActivity implements NetworkReceive
         binding.userName.setText(data.fullName);
         binding.designation.setText(data.designation + ", " + data.department);
         binding.mission.setText(data.missionTitle);
-        if (data.emailId == null) {
+        if (data.emailId.equalsIgnoreCase("null") || data.emailId.equalsIgnoreCase("-")) {
             binding.emailLay.setVisibility(View.GONE);
         } else {
             binding.emailLay.setVisibility(View.VISIBLE);
             binding.email.setText(data.emailId);
         }
 
-        if (data.mobileNo1 == null) {
+        if (data.mobileNo1.equalsIgnoreCase("null") || data.mobileNo1.equalsIgnoreCase("-")) {
             binding.phoneLayOne.setVisibility(View.GONE);
         } else {
             binding.phoneLayOne.setVisibility(View.VISIBLE);
             binding.phoneOne.setText(data.mobileNo1);
         }
 
-        if (data.mobileNo2 == null) {
+        if (data.mobileNo2.equalsIgnoreCase("null") || data.mobileNo2.equalsIgnoreCase("-")) {
             binding.phoneTwoLay.setVisibility(View.GONE);
         } else {
             binding.phoneTwoLay.setVisibility(View.VISIBLE);
