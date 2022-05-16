@@ -33,20 +33,20 @@ public class EmployeeEm {
     @SerializedName("project_title")
     @Expose
     public String projectTitle;
-    @ColumnInfo(name = "dept_id")
-    @SerializedName("dept_id")
+    @ColumnInfo(name = "department_id")
+    @SerializedName("department_id")
     @Expose
     public Integer deptId;
-    @ColumnInfo(name = "dept_title")
-    @SerializedName("dept_title")
+    @ColumnInfo(name = "department_title")
+    @SerializedName("department_title")
     @Expose
     public String deptTitle;
-    @ColumnInfo(name = "desg_id")
-    @SerializedName("desg_id")
+    @ColumnInfo(name = "designation_id")
+    @SerializedName("designation_id")
     @Expose
     public Integer desgId;
-    @ColumnInfo(name = "desg_title")
-    @SerializedName("desg_title")
+    @ColumnInfo(name = "designation_title")
+    @SerializedName("designation_title")
     @Expose
     public String desgTitle;
     @ColumnInfo(name = "full_name")

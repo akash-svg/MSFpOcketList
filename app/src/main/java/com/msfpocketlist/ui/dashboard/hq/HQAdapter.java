@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -44,31 +45,35 @@ public class HQAdapter extends RecyclerView.Adapter<HQAdapter.ViewHolder> {
 
         if (dataset.mobileNo1.equalsIgnoreCase("null") || dataset.mobileNo1.equalsIgnoreCase("-")){
             holder.deptContact.setVisibility(View.GONE);
-            holder.offlineCall.setVisibility(View.GONE);
-            holder.msgOne.setVisibility(View.GONE);
-
+            holder.one.setVisibility(View.GONE);
         }else{
+            holder.one.setVisibility(View.VISIBLE);
             holder.deptContact.setVisibility(View.VISIBLE);
-            holder.offlineCall.setVisibility(View.VISIBLE);
-            holder.msgOne.setVisibility(View.VISIBLE);
             holder.deptContact.setText(dataset.mobileNo1);
         }
 
-        if (dataset.mobileNo2.equalsIgnoreCase("null") || dataset.mobileNo2.equalsIgnoreCase("-")){
+        if (dataset.mobileNo2.equalsIgnoreCase("null")||dataset.mobileNo2.equalsIgnoreCase("-")){
             holder.deptContactOne.setVisibility(View.GONE);
-            holder.onLineCall.setVisibility(View.GONE);
-            holder.msgTwo.setVisibility(View.GONE);
+            holder.two.setVisibility(View.GONE);
         }else{
+            holder.two.setVisibility(View.VISIBLE);
             holder.deptContactOne.setVisibility(View.VISIBLE);
-            holder.onLineCall.setVisibility(View.VISIBLE);
-            holder.msgTwo.setVisibility(View.VISIBLE);
             holder.deptContactOne.setText(dataset.mobileNo2);
         }
 
         if (!(dataset.emailId.equalsIgnoreCase("null")||dataset.emailId.equalsIgnoreCase("-"))){
+            holder.deptEmail.setVisibility(View.VISIBLE);
             holder.deptEmail.setText(dataset.emailId);
+        }else{
+            holder.deptEmail.setVisibility(View.GONE);
         }
 
+        if (!dataset.fullName.equalsIgnoreCase("null")){
+            holder.employeeName.setVisibility(View.VISIBLE);
+            holder.employeeName.setText(dataset.fullName);
+        }else{
+            holder.employeeName.setVisibility(View.GONE);
+        }
 
         holder.cardView.setOnClickListener(v->{onItemClick.onHqItemClick(dataset);});
         holder.offlineCall.setOnClickListener(v->{onItemClick.onOfflineCall(dataset);});
@@ -90,8 +95,9 @@ public class HQAdapter extends RecyclerView.Adapter<HQAdapter.ViewHolder> {
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView deptName, designation, deptContact,deptEmail,deptContactOne;
+        TextView deptName, designation, deptContact,deptEmail,deptContactOne,employeeName;
         CardView cardView;
+        LinearLayout one,two;
         ImageButton offlineCall,onLineCall,msgOne,msgTwo;
 
         public ViewHolder(@NonNull View itemView) {
@@ -106,6 +112,9 @@ public class HQAdapter extends RecyclerView.Adapter<HQAdapter.ViewHolder> {
             onLineCall = itemView.findViewById(R.id.onlineCalling);
             msgOne = itemView.findViewById(R.id.messageOne);
             msgTwo = itemView.findViewById(R.id.messengeTwo);
+            employeeName = itemView.findViewById(R.id.employeeName);
+            one = itemView.findViewById(R.id.LayOne);
+            two = itemView.findViewById(R.id.LayTwo);
         }
     }
 

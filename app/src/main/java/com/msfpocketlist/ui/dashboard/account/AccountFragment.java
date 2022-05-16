@@ -135,13 +135,13 @@ public class AccountFragment extends Fragment implements EasyPermissions.Permiss
         if ((profileData.fullName.equalsIgnoreCase("null")||profileData.fullName.equalsIgnoreCase("-"))){
             userName.setText("Not Available");
         }else{
-            userName.setText(profileData.mobileNo2);
+            userName.setText(profileData.fullName);
         }
 
         if ((profileData.designation.equalsIgnoreCase("null")||profileData.designation.equalsIgnoreCase("-"))){
             userDesignation.setText("Not Available");
         }else{
-            userDesignation.setText(profileData.mobileNo2);
+            userDesignation.setText(profileData.designation);
         }
 
         if ((profileData.mobileNo1.equalsIgnoreCase("null")||profileData.mobileNo1.equalsIgnoreCase("-"))){

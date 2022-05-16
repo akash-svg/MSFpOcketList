@@ -44,7 +44,6 @@ public class LoginActivity extends AppCompatActivity implements NetworkReceiver.
         FirebaseInstallations.getInstance().getToken(true).addOnCompleteListener(task -> {
             try {
                 token = Objects.requireNonNull(task.getResult()).toString();
-                Log.e("onComplete: token", token+" ");
             } catch (Exception e) {
                 e.printStackTrace();
             }

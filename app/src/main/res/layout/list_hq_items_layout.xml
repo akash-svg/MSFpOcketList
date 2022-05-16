@@ -33,6 +33,15 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
+                android:id="@+id/employeeName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="?attr/colorOnBackground"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="@string/app_name" />
+
+            <TextView
                 android:id="@+id/designation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -81,6 +90,7 @@
             app:layout_constraintTop_toTopOf="@id/infoLay">
 
             <LinearLayout
+                android:id="@+id/LayOne"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="6dp">
@@ -99,6 +109,26 @@
                     app:tint="?attr/colorOnBackground" />
 
                 <ImageButton
+                    android:id="@+id/messageOne"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
+                    android:contentDescription="@string/phone_calling"
+                    android:focusable="true"
+                    android:src="@drawable/ic_message"
+                    app:tint="?attr/colorOnBackground" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/LayTwo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="6dp">
+
+                <ImageButton
                     android:id="@+id/onlineCalling"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
@@ -107,28 +137,9 @@
                     android:contentDescription="@string/online_calling"
                     android:focusable="true"
                     android:padding="4dp"
+                    android:layout_marginEnd="20dp"
                     android:src="@drawable/ic_baseline_phone_iphone"
                     app:tint="?attr/colorOnBackground" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="6dp">
-
-                <ImageButton
-                    android:id="@+id/messageOne"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:layout_marginEnd="20dp"
-                    android:background="?android:attr/selectableItemBackgroundBorderless"
-                    android:clickable="true"
-                    android:contentDescription="@string/phone_calling"
-                    android:focusable="true"
-                    app:tint="?attr/colorOnBackground"
-                    android:src="@drawable/ic_message" />
-
                 <ImageButton
                     android:id="@+id/messengeTwo"
                     android:layout_width="40dp"

@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/flash_white"
     tools:context=".ui.profile.ProfileActivity">
 
     <include
@@ -17,206 +16,222 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
 
-    <LinearLayout
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/infoLay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
         android:elevation="4dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="10dp"
+        app:cardCornerRadius="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/con">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profileImg"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-           tools:src="@mipmap/ic_launcher_round"/>
-
-        <TextView
-            android:id="@+id/userName"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:textColor="?attr/colorOnBackground"
-            android:padding="2dp"
-            tools:text="User Name" />
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="10dp">
 
-        <TextView
-            android:id="@+id/designation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="?attr/colorOnBackground"
-            android:padding="2dp"
-            tools:text="Department Designation" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profileImg"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                tools:src="@mipmap/ic_launcher_round" />
 
-        <TextView
-            android:id="@+id/mission"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="?attr/colorOnBackground"
-            android:padding="2dp"
-            tools:text="Mission" />
-    </LinearLayout>
+            <TextView
+                android:id="@+id/userName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:padding="2dp"
+                android:textColor="?attr/colorOnBackground"
+                tools:text="User Name" />
 
-    <RelativeLayout
+            <TextView
+                android:id="@+id/designation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:textColor="?attr/colorOnBackground"
+                tools:text="Department Designation" />
+
+            <TextView
+                android:id="@+id/mission"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:textColor="?attr/colorOnBackground"
+                tools:text="Mission" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/emailLay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
-        android:background="@color/white"
-        android:elevation="4dp"
-        android:padding="10dp"
         android:clickable="true"
+        android:elevation="4dp"
         android:focusable="true"
         android:visibility="gone"
-        android:foreground="?android:attr/selectableItemBackgroundBorderless"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/infoLay">
 
-        <TextView
-            android:id="@+id/email"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_margin="4dp"
-            android:textColor="?attr/colorOnBackground"
-            android:padding="4dp"
-            android:textSize="16sp"
-            tools:text="johny.ice10@gmail.com" />
+            android:padding="10dp">
 
-        <ImageButton
-            android:id="@+id/emailBtn"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="4dp"
-            android:layout_marginBottom="4dp"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_email"
-            app:tint="?attr/colorOnBackground"
-            tools:ignore="SpeakableTextPresentCheck" />
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="4dp"
+                android:padding="4dp"
+                android:textColor="?attr/colorOnBackground"
+                android:textSize="16sp"
+                tools:text="johny.ice10@gmail.com" />
 
-    <RelativeLayout
+            <ImageButton
+                android:id="@+id/emailBtn"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="4dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_email"
+                app:tint="?attr/colorOnBackground"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/phoneLayOne"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
-        android:background="@color/white"
-        android:elevation="4dp"
-        android:padding="10dp"
         android:clickable="true"
+        android:elevation="4dp"
         android:focusable="true"
         android:visibility="gone"
-        android:foreground="?android:attr/selectableItemBackgroundBorderless"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/emailLay">
 
-        <TextView
-            android:id="@+id/phoneOne"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_margin="4dp"
-            android:textColor="?attr/colorOnBackground"
-            android:padding="4dp"
-            android:textSize="16sp"
-            tools:text="01767535372" />
+            android:padding="10dp">
 
-        <ImageButton
-            android:id="@+id/phoneOneMsg"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="20dp"
-            app:tint="?attr/colorOnBackground"
-            android:layout_toStartOf="@id/phoneOneBtn"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_message"
-            tools:ignore="SpeakableTextPresentCheck" />
+            <TextView
+                android:id="@+id/phoneOne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="4dp"
+                android:padding="4dp"
+                android:textColor="?attr/colorOnBackground"
+                android:textSize="16sp"
+                tools:text="01767535372" />
 
-        <ImageButton
-            android:id="@+id/phoneOneBtn"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_margin="4dp"
-            app:tint="?attr/colorOnBackground"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_baseline_phone"
-            tools:ignore="SpeakableTextPresentCheck" />
-    </RelativeLayout>
+            <ImageButton
+                android:id="@+id/phoneOneMsg"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="20dp"
+                android:layout_toStartOf="@id/phoneOneBtn"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_message"
+                app:tint="?attr/colorOnBackground"
+                tools:ignore="SpeakableTextPresentCheck" />
 
-    <RelativeLayout
+            <ImageButton
+                android:id="@+id/phoneOneBtn"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="4dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_baseline_phone"
+                app:tint="?attr/colorOnBackground"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </RelativeLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/phoneTwoLay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
-        android:background="@color/white"
-        android:elevation="4dp"
-        android:padding="10dp"
         android:clickable="true"
+        android:elevation="4dp"
         android:focusable="true"
         android:visibility="gone"
-        android:foreground="?android:attr/selectableItemBackgroundBorderless"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/phoneLayOne">
 
-        <TextView
-            android:id="@+id/phoneTwo"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_margin="4dp"
-            android:textColor="?attr/colorOnBackground"
-            android:padding="4dp"
-            android:textSize="16sp"
-            tools:text="01767535372" />
+            android:padding="10dp">
 
-        <ImageButton
-            android:id="@+id/phoneTwoMsg"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="20dp"
-            app:tint="?attr/colorOnBackground"
-            android:layout_toStartOf="@id/phonrTwoBtn"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_message"
-            tools:ignore="SpeakableTextPresentCheck" />
+            <TextView
+                android:id="@+id/phoneTwo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_margin="4dp"
+                android:padding="4dp"
+                android:textColor="?attr/colorOnBackground"
+                android:textSize="16sp"
+                tools:text="01767535372" />
 
-        <ImageButton
-            android:id="@+id/phonrTwoBtn"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_margin="4dp"
-            app:tint="?attr/colorOnBackground"
-            android:background="?android:attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/ic_baseline_phone_iphone"
-            tools:ignore="SpeakableTextPresentCheck" />
-    </RelativeLayout>
+            <ImageButton
+                android:id="@+id/phoneTwoMsg"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="20dp"
+                android:layout_toStartOf="@id/phonrTwoBtn"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_message"
+                app:tint="?attr/colorOnBackground"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <ImageButton
+                android:id="@+id/phonrTwoBtn"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="4dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_baseline_phone_iphone"
+                app:tint="?attr/colorOnBackground"
+                tools:ignore="SpeakableTextPresentCheck" />
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
 
     <TextView
         android:id="@+id/noDataFound"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_medium"
+        android:textColor="?attr/colorOnBackground"
         android:textSize="16sp"
         android:visibility="gone"
-        android:textColor="?attr/colorOnBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

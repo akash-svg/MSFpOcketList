@@ -5,7 +5,7 @@
     android:id="@+id/missionLay"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/flash_white"
+    android:background="?attr/colorSurface"
     tools:context=".ui.dashboard.mission.MissionFragment">
 
     <include
@@ -20,12 +20,13 @@
         android:layout_height="0dp"
         android:orientation="vertical"
         android:overScrollMode="never"
-        tools:itemCount="20"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/con"
-        app:shimmer_recycler_layout="@layout/list_mission_shimmer" />
+        app:shimmer_recycler_layout="@layout/list_mission_shimmer"
+        tools:ignore="SpeakableTextPresentCheck"
+        tools:itemCount="30" />
 
 
 

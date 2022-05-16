@@ -4,153 +4,169 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/flash_white"
+    android:background="?attr/colorSurface"
     tools:context=".ui.dashboard.account.AccountFragment">
 
     <include
         android:id="@+id/con"
         layout="@layout/connection_layout"
         android:visibility="gone"
-        tools:visibility="visible"/>
+        tools:visibility="visible" />
 
 
-    <LinearLayout
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:background="@drawable/list_item_hq_background"
         android:elevation="4dp"
-        android:orientation="vertical"
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/con">
 
-        <RelativeLayout
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/userImg"
-                android:layout_width="90dp"
-                android:layout_height="90dp"
-                android:layout_margin="10dp"
-                app:civ_border_color="@color/purple_200"
-                app:civ_border_width="2dp"
-                android:src="@mipmap/ic_launcher" />
-        </RelativeLayout>
-
-        <TextView
-            android:id="@+id/userNameEd"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:textColor="?attr/colorOnBackground"
-            android:padding="4dp"
-            android:textSize="16sp"
-            tools:text="User Name" />
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/userDesignation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:textColor="?attr/colorOnBackground"
-            android:padding="4dp"
-            android:textSize="16sp"
-            tools:text="Designation" />
-    </LinearLayout>
+            <RelativeLayout
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center">
 
-    <LinearLayout
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/userImg"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_margin="10dp"
+                    android:src="@mipmap/ic_launcher"
+                    app:civ_border_color="@color/purple_200"
+                    app:civ_border_width="2dp" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/userNameEd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:padding="4dp"
+                android:textColor="?attr/colorOnBackground"
+                android:textSize="16sp"
+                tools:text="User Name" />
+
+            <TextView
+                android:id="@+id/userDesignation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:padding="4dp"
+                android:textColor="?attr/colorOnBackground"
+                android:textSize="16sp"
+                tools:text="Designation" />
+        </LinearLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:background="@drawable/list_item_hq_background"
-        android:elevation="4dp"
-        android:orientation="vertical"
         android:padding="10dp"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
         app:layout_constraintVertical_bias="0.0">
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/TextInputLayoutStyle"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:hint="@string/phone_number">
+            android:elevation="4dp"
+            android:orientation="vertical">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/userPhone"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/TextInputLayoutStyle"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:drawableStart="@drawable/ic_iphone"
-                android:drawablePadding="4dp"
-                android:enabled="false"
-                android:textColor="?attr/colorOnBackground"
-                tools:text="+8801753269587" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="@string/phone_number"
+                app:boxStrokeColor="?attr/colorOnBackground">
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/TextInputLayoutStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:hint="@string/phone_number">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/userPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:drawableStart="@drawable/ic_iphone"
+                    android:drawablePadding="4dp"
+                    android:enabled="false"
+                    android:textColor="?attr/colorOnBackground"
+                    tools:text="+8801753269587" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/userPhoneOne"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/TextInputLayoutStyle"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:drawableStart="@drawable/ic_iphone"
-                android:drawablePadding="4dp"
-                android:enabled="false"
-                android:textColor="?attr/colorOnBackground"
-                tools:text="+8801753269587" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="@string/phone_number"
+                app:boxStrokeColor="?attr/colorOnBackground">
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/TextInputLayoutStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:hint="@string/email">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/userPhoneOne"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:drawableStart="@drawable/ic_iphone"
+                    android:drawablePadding="4dp"
+                    android:enabled="false"
+                    android:textColor="?attr/colorOnBackground"
+                    tools:text="+8801753269587" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/userMail"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/TextInputLayoutStyle"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:drawableStart="@drawable/ic_email"
-                android:drawablePadding="4dp"
-                android:enabled="false"
-                android:textColor="?attr/colorOnBackground"
-                tools:text="xyz@example.com" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="@string/email"
+                app:boxStrokeColor="?attr/colorOnBackground">
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/TextInputLayoutStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:hint="@string/address">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/userMail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:drawableStart="@drawable/ic_email"
+                    android:drawablePadding="4dp"
+                    android:enabled="false"
+                    android:textColor="?attr/colorOnBackground"
+                    tools:text="xyz@example.com" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/userAddress"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/TextInputLayoutStyle"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:drawableStart="@drawable/ic_location"
-                android:drawablePadding="4dp"
-                android:enabled="false"
-                android:textColor="?attr/colorOnBackground"
-                tools:text="Bangladesh" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="@string/address"
+                app:boxStrokeColor="?attr/colorOnBackground">
 
-    </LinearLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/userAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:drawableStart="@drawable/ic_location"
+                    android:drawablePadding="4dp"
+                    android:enabled="false"
+                    android:textColor="?attr/colorOnBackground"
+                    tools:text="Bangladesh" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 
     <TextView
         android:id="@+id/appVersion"
