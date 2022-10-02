@@ -21,13 +21,13 @@
 
         <LinearLayout
             android:id="@+id/infoLay"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:orientation="vertical"
             android:padding="2dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/testLayout"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -38,6 +38,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="?attr/colorOnBackground"
                 android:textSize="16sp"
+                android:maxLines="2"
                 android:textStyle="bold"
                 tools:text="@string/app_name" />
 
@@ -47,6 +48,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="?attr/colorOnBackground"
                 android:textSize="16sp"
+                android:maxLines="2"
                 android:textStyle="bold"
                 tools:text="@string/designation" />
 
@@ -55,6 +57,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="?attr/colorOnBackground"
+                android:maxLines="2"
                 tools:text="@string/number" />
 
             <TextView
@@ -62,6 +65,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="?attr/colorOnBackground"
+                android:maxLines="2"
                 tools:text="@string/number" />
 
             <TextView
@@ -69,6 +73,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="?attr/colorOnBackground"
+                android:maxLines="2"
                 tools:text="@string/email" />
 
             <TextView
@@ -76,12 +81,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="?attr/colorOnBackground"
+                android:maxLines="2"
                 tools:text="@string/department_name" />
 
         </LinearLayout>
 
 
         <LinearLayout
+            android:id="@+id/testLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"

@@ -19,7 +19,7 @@ import com.msfpocketlist.localdb.dao.PocketDao;
 import com.msfpocketlist.localdb.dao.PocketEmDao;
 
 
-@Database(entities = {EmployeeHq.class, EmployeeEm.class, Mission.class, Project.class, Employee.class, EmployeeAll.class},version = 2,exportSchema = false)
+@Database(entities = {EmployeeHq.class, EmployeeEm.class, Mission.class, Project.class, Employee.class, EmployeeAll.class},version = 4,exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
     public static AppDatabase INSTANCE;
     public static synchronized AppDatabase getInstance(Context context){

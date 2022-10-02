@@ -17,7 +17,7 @@ public class EmployeeAll {
     @ColumnInfo(name = "mission_id")
     @SerializedName("mission_id")
     @Expose
-    public Integer missionId;
+    public String missionId;
     @ColumnInfo(name = "mission_title")
     @SerializedName("mission_title")
     @Expose
@@ -25,7 +25,7 @@ public class EmployeeAll {
     @ColumnInfo(name = "project_id")
     @SerializedName("project_id")
     @Expose
-    public Integer projectId;
+    public String projectId;
     @ColumnInfo(name = "project_title")
     @SerializedName("project_title")
     @Expose

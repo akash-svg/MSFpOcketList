@@ -93,7 +93,8 @@
                 android:padding="4dp"
                 android:textColor="?attr/colorOnBackground"
                 android:textSize="16sp"
-                tools:text="johny.ice10@gmail.com" />
+                tools:text="johny.ice10@gmail.com"
+                tools:ignore="RelativeOverlap" />
 
             <ImageButton
                 android:id="@+id/emailBtn"
@@ -108,7 +109,7 @@
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:src="@drawable/ic_email"
                 app:tint="?attr/colorOnBackground"
-                tools:ignore="SpeakableTextPresentCheck" />
+                tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
         </RelativeLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -139,7 +140,8 @@
                 android:padding="4dp"
                 android:textColor="?attr/colorOnBackground"
                 android:textSize="16sp"
-                tools:text="01767535372" />
+                tools:text="01767535372"
+                tools:ignore="RelativeOverlap" />
 
             <ImageButton
                 android:id="@+id/phoneOneMsg"
@@ -151,7 +153,7 @@
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:src="@drawable/ic_message"
                 app:tint="?attr/colorOnBackground"
-                tools:ignore="SpeakableTextPresentCheck" />
+                tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
             <ImageButton
                 android:id="@+id/phoneOneBtn"
@@ -163,7 +165,7 @@
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:src="@drawable/ic_baseline_phone"
                 app:tint="?attr/colorOnBackground"
-                tools:ignore="SpeakableTextPresentCheck" />
+                tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
         </RelativeLayout>
 
 
@@ -196,7 +198,8 @@
                 android:padding="4dp"
                 android:textColor="?attr/colorOnBackground"
                 android:textSize="16sp"
-                tools:text="01767535372" />
+                tools:text="01767535372"
+                tools:ignore="RelativeOverlap" />
 
             <ImageButton
                 android:id="@+id/phoneTwoMsg"
@@ -208,7 +211,7 @@
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:src="@drawable/ic_message"
                 app:tint="?attr/colorOnBackground"
-                tools:ignore="SpeakableTextPresentCheck" />
+                tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
 
             <ImageButton
                 android:id="@+id/phonrTwoBtn"
@@ -220,7 +223,7 @@
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:src="@drawable/ic_baseline_phone_iphone"
                 app:tint="?attr/colorOnBackground"
-                tools:ignore="SpeakableTextPresentCheck" />
+                tools:ignore="ContentDescription,SpeakableTextPresentCheck" />
         </RelativeLayout>
     </com.google.android.material.card.MaterialCardView>
 
@@ -232,10 +235,7 @@
         android:textColor="?attr/colorOnBackground"
         android:textSize="16sp"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_gravity="center"
         tools:text="No Data Found!" />
 
 </LinearLayout>

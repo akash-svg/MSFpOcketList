@@ -16,11 +16,11 @@ public class EmployeeEm {
     @ColumnInfo(name = "admin_id")
     @SerializedName("admin_id")
     @Expose
-    public Integer adminId;
+    public String adminId;
     @ColumnInfo(name = "mission_id")
     @SerializedName("mission_id")
     @Expose
-    public Integer missionId;
+    public String missionId;
     @ColumnInfo(name = "mission_title")
     @SerializedName("mission_title")
     @Expose
@@ -28,7 +28,7 @@ public class EmployeeEm {
     @ColumnInfo(name = "project_id")
     @SerializedName("project_id")
     @Expose
-    public Integer projectId;
+    public String projectId;
     @ColumnInfo(name = "project_title")
     @SerializedName("project_title")
     @Expose
@@ -44,7 +44,7 @@ public class EmployeeEm {
     @ColumnInfo(name = "designation_id")
     @SerializedName("designation_id")
     @Expose
-    public Integer desgId;
+    public String desgId;
     @ColumnInfo(name = "designation_title")
     @SerializedName("designation_title")
     @Expose

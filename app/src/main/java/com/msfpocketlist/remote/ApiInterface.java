@@ -50,7 +50,7 @@ public interface ApiInterface {
     Call<PocketModel> getAllPocketList(@Header("Authorization") String auth, @Path("missionId") int missionId);
 
     //employee on projects
-    @GET("mission-management/projects/{projectId}")
+    @GET("mission-management/projects/{projectId}/employees")
     Call<PocketEmModel> getEmployeeOnPocket(@Header("Authorization") String auth,@Path("projectId") int pocketId);
 
     //get employee detail by id

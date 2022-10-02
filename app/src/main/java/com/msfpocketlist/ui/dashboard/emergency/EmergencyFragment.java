@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -139,6 +141,7 @@ public class EmergencyFragment extends Fragment implements EasyPermissions.Permi
             public void onFailure(@NonNull Call<EmergencyModel> call, @NonNull Throwable t) {
                 binding.emergencyRec.hideShimmer();
                 Toast.makeText(requireContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+                Log.e("TAG", "onFailure: "+t.getMessage() );
             }
         });
     }
